@@ -1,0 +1,937 @@
+{
+  "content_curation": {
+    "success": true,
+    "data": {
+      "papers": [
+        {
+          "title": "Automation of News Content Curation and Storytelling for Local Newsrooms",
+          "snippet": "\u2026 AI/ML-driven solutions to automate mundane processes involved with news content curation \u2026 newsrooms with resource limitations that can be aided by automation solutions. The first \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/10466950/",
+          "publicationInfo": "K Neupane, HS Yeddulapalli\u2026 - \u2026 & Big Data Systems \u2026, 2023 - ieeexplore.ieee.org",
+          "year": 2023,
+          "citedBy": 1,
+          "pdfUrl": null
+        },
+        {
+          "title": "Generative AI in Digital Content Creation, Curation and Automation",
+          "snippet": "\u2026 to define the future of digital content. Finally, the paper \u2026 AI-based solutions in content automation and personalization. \u2026 AI-powered content recommendation systems in platforms \u2026",
+          "link": "http://ijrsm.com/index.php/journal-ijrsm/article/view/827",
+          "publicationInfo": "A Tiwari - International Journal of Research Science and \u2026, 2023 - ijrsm.com",
+          "year": 2023,
+          "citedBy": null,
+          "pdfUrl": "http://ijrsm.com/index.php/journal-ijrsm/article/download/827/750"
+        },
+        {
+          "title": "Independent Newsletters and Content Curation: The Editors' View",
+          "snippet": "\u2026 their impact in the media system. \u2026 AI can automate selection processes and provide tools to help curators identify and organize valuable materials. However, combining automation with \u2026",
+          "link": "https://dau.url.edu/handle/20.500.14342/5132",
+          "publicationInfo": "C Lopezosa, J Guallar, P Franch - Tripodos, n\u00fam. 56, 2024, 2024 - dau.url.edu",
+          "year": 2024,
+          "citedBy": null,
+          "pdfUrl": "https://dau.url.edu/bitstream/handle/20.500.14342/5132/Independent%20Newsletters%20and%20content%20curation.pdf?sequence=1"
+        },
+        {
+          "title": "Audiences, automation, and AI: From structured news to language models",
+          "snippet": "\u2026 in content management systems, metadata systems, curation \u2026 of structured or automated journalism prototypes becoming \u2026 generative AI models include content tagging for curation (\u2026",
+          "link": "https://onlinelibrary.wiley.com/doi/abs/10.1002/aaai.12168",
+          "publicationInfo": "D Caswell - AI Magazine, 2024 - Wiley Online Library",
+          "year": 2024,
+          "citedBy": 13,
+          "pdfUrl": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/aaai.12168"
+        },
+        {
+          "title": "Reconceptualizing Gatekeeping in the Age of Artificial Intelligence: A Theoretical Exploration of Artificial Intelligence-Driven News Curation and Automated\u00a0\u2026",
+          "snippet": "\u2026 systems, large language model (LLM)\u2013based news writing, and platform studies. Our review reveals that AI-driven content curation systems (\u2026 AI-driven content curation and automated \u2026",
+          "link": "https://www.mdpi.com/2673-5172/6/2/68",
+          "publicationInfo": "DV Voinea - Journalism and Media, 2025 - mdpi.com",
+          "year": 2025,
+          "citedBy": 2,
+          "pdfUrl": null
+        },
+        {
+          "title": "Artificial Intelligence in Local News",
+          "snippet": "\u2026 Experimentation with AI and automation technologies requires \u2026 These automated writers use the AI technique of NLG and \u2026 be plugged into an auto writing system and produce a similar \u2026",
+          "link": "https://www.researchgate.net/profile/Ernest-Kung/publication/363475725_Artificial_Intelligence_in_Local_News_A_survey_of_US_newsrooms'_AI_readiness/links/631e6d85873eca0c007d0e91/Artificial-Intelligence-in-Local-News-A-survey-of-US-newsrooms-AI-readiness.pdf",
+          "publicationInfo": "A Rinehart, E Kung - A survey of US newsrooms' AI readiness, 2022 - researchgate.net",
+          "year": 2022,
+          "citedBy": 44,
+          "pdfUrl": "https://www.researchgate.net/profile/Ernest-Kung/publication/363475725_Artificial_Intelligence_in_Local_News_A_survey_of_US_newsrooms'_AI_readiness/links/631e6d85873eca0c007d0e91/Artificial-Intelligence-in-Local-News-A-survey-of-US-newsrooms-AI-readiness.pdf"
+        },
+        {
+          "title": "Algorithmic content moderation: Technical and political challenges in the automation of platform governance",
+          "snippet": "\u2026 algorithms or \u2018AI\u2019, we show that even \u2018well optimized\u2019 moderation systems could exacerbate, \u2026 make manual curation or intervention unfeasible. On USENET and other bulletin boards, \u2026",
+          "link": "https://journals.sagepub.com/doi/abs/10.1177/2053951719897945",
+          "publicationInfo": "R Gorwa, R Binns, C Katzenbach - Big Data & Society, 2020 - journals.sagepub.com",
+          "year": 2020,
+          "citedBy": 1040,
+          "pdfUrl": "https://journals.sagepub.com/doi/pdf/10.1177/2053951719897945?src=getftr"
+        },
+        {
+          "title": "Digital newsroom transformation: A systematic review of the impact of artificial intelligence on journalistic practices, news narratives, and ethical challenges",
+          "snippet": "\u2026 of AI in journalism, revealing a reliance on AI for content generation and news curation. For \u2026 who can interpret AI output, apply editorial judgment to automated systems, and perform the \u2026",
+          "link": "https://www.mdpi.com/2673-5172/5/4/97",
+          "publicationInfo": "AF Sonni, H Hafied, I Irwanto, R Latuheru - Journalism and Media, 2024 - mdpi.com",
+          "year": 2024,
+          "citedBy": 35,
+          "pdfUrl": null
+        },
+        {
+          "title": "Artificial intelligence systems-aided news and copyright: Assessing legal implications for journalism practices",
+          "snippet": "\u2026 4) Content curation is another purpose in which AIS can help journalists in their search for \u2026 6) Most usually, artificial intelligence systems-aided or automated news production is based \u2026",
+          "link": "https://www.mdpi.com/1999-5903/12/5/85",
+          "publicationInfo": "J D\u00edaz-Noci - Future internet, 2020 - mdpi.com",
+          "year": 2020,
+          "citedBy": 37,
+          "pdfUrl": null
+        },
+        {
+          "title": "Auditing news curation systems: A case study examining algorithmic and editorial logic in Apple News",
+          "snippet": "\u2026 Sociotechnical content curation systems like Google, Face\u2026 choices in June 2018 analyzed tweets and email newsletters \u2026 the system-wide update frequency, we ran the automated data \u2026",
+          "link": "https://aaai.org/ojs/index.php/ICWSM/article/view/7277",
+          "publicationInfo": "J Bandy, N Diakopoulos - Proceedings of the International AAAI Conference \u2026, 2020 - aaai.org",
+          "year": 2020,
+          "citedBy": 98,
+          "pdfUrl": "https://aaai.org/ojs/index.php/ICWSM/article/download/7277/7131/"
+        },
+        {
+          "title": "Application of AI technology in modern digital marketing environment",
+          "snippet": "\u2026 Curation, much like content creation, can be automated \u2026 make relevant content answering these questions is content curation. It \u2026 and presents the most relevant products in newsletters. \u2026",
+          "link": "https://www.emerald.com/insight/content/doi/10.1108/wjemsd-08-2020-0099/full/html",
+          "publicationInfo": "K Nair, R Gupta - World Journal of Entrepreneurship, Management \u2026, 2021 - emerald.com",
+          "year": 2021,
+          "citedBy": 219,
+          "pdfUrl": "https://www.researchgate.net/profile/Kiran-Nair-6/publication/349135242_Application_of_AI_technology_in_modern_digital_marketing_environment/links/607d5da72fb9097c0cf3ef20/Application-of-AI-technology-in-modern-digital-marketing-environment.pdf"
+        },
+        {
+          "title": "Navigating the new frontier: A comprehensive review of AI in journalism",
+          "snippet": "\u2026 AI in newsrooms, including the use of automated content \u2026 , accountability, and bias in AI systems and the need for ethical \u2026 techniques and personalized content curation. The impact of \u2026",
+          "link": "https://www.scirp.org/journal/paperinformation?paperid=130552",
+          "publicationInfo": "PN Amponsah, AM Atianashie - Advances in Journalism and \u2026, 2024 - scirp.org",
+          "year": 2024,
+          "citedBy": 45,
+          "pdfUrl": null
+        },
+        {
+          "title": "Addressing the Impact of Artificial Intelligence on Journalism: The perception of experts, journalists and academics",
+          "snippet": "\u2026 Additionally, AI may facilitate automatic translation and the \u2026 Content personalization, content curation and managing \u2026 (BM) \u2018[We are able to] elaborate a personalized cover or newsletter \u2026",
+          "link": "https://burjcdigital.urjc.es/items/001b0b25-74ba-4f81-952a-9c7df7e23d9f",
+          "publicationInfo": "A Noain S\u00e1nchez - 2022 - burjcdigital.urjc.es",
+          "year": 2022,
+          "citedBy": 198,
+          "pdfUrl": "https://burjcdigital.urjc.es/bitstreams/c23c6cd6-b524-4bdf-bb47-bc307bf9c002/download"
+        },
+        {
+          "title": "Optimizing the digital marketing landscape: A comprehensive exploration of artificial intelligence (AI) technologies, applications, advantages, and challenges",
+          "snippet": "\u2026 often-neglected uses of AI in marketing is AI content curation. \u2026 be used to tailor the content of the following newsletters[46]. \u2026 Currently, AI systems can be employed to automate several \u2026",
+          "link": "https://www.researchgate.net/profile/Asif-Raihan-2/publication/384396268_Optimizing_the_digital_marketing_landscape_A_comprehensive_exploration_of_artificial_intelligence_AI_technologies_applications_advantages_and_challenges/links/66f6c4c2553d245f9e3c3fb3/Optimizing-the-Digital-Marketing-Landscape-A-Comprehensive-Exploration-of-Artificial-Intelligence-AI-Technologies-Applications-Advantages-and-Challenges.pdf",
+          "publicationInfo": "J Rahman, A Raihan, T Tanchangya\u2026 - Frontiers of \u2026, 2024 - researchgate.net",
+          "year": 2024,
+          "citedBy": 33,
+          "pdfUrl": "https://www.researchgate.net/profile/Asif-Raihan-2/publication/384396268_Optimizing_the_digital_marketing_landscape_A_comprehensive_exploration_of_artificial_intelligence_AI_technologies_applications_advantages_and_challenges/links/66f6c4c2553d245f9e3c3fb3/Optimizing-the-Digital-Marketing-Landscape-A-Comprehensive-Exploration-of-Artificial-Intelligence-AI-Technologies-Applications-Advantages-and-Challenges.pdf"
+        },
+        {
+          "title": "Artificial intelligence and journalism: An agenda for journalism research in Africa",
+          "snippet": "\u2026 of AI systems, and as more journalists incorporate AI tools in their \u2026 reception of automated news production and content curation. We \u2026 related to researching the use of AI in newsrooms. \u2026",
+          "link": "https://www.tandfonline.com/doi/abs/10.1080/23743670.2021.1999840",
+          "publicationInfo": "A Kothari, SA Cruikshank - African Journalism Studies, 2022 - Taylor & Francis",
+          "year": 2022,
+          "citedBy": 86,
+          "pdfUrl": null
+        },
+        {
+          "title": "Art and the science of generative AI",
+          "snippet": "\u2026 curating AI-generated content can, in some cases, diversify \u2026 Generative AI\u2019s reliance on training data to automate aspects \u2026 into the nature of these systems. Copyright law must balance \u2026",
+          "link": "https://www.science.org/doi/abs/10.1126/science.adh4451",
+          "publicationInfo": "Z Epstein, A Hertzmann\u2026 - Science, 2023 - science.org",
+          "year": 2023,
+          "citedBy": 503,
+          "pdfUrl": "https://arxiv.org/pdf/2306.04141"
+        },
+        {
+          "title": "Artificial intelligence in public health: the potential of epidemic early warning systems",
+          "snippet": "\u2026 The use of artificial intelligence (AI) to generate automated early warnings in epidemic \u2026 AI can be used to curate, filter and decipher such data to provide more valid early warning \u2026",
+          "link": "https://journals.sagepub.com/doi/abs/10.1177/03000605231159335",
+          "publicationInfo": "CR MacIntyre, X Chen\u2026 - Journal of \u2026, 2023 - journals.sagepub.com",
+          "year": 2023,
+          "citedBy": 101,
+          "pdfUrl": "https://journals.sagepub.com/doi/pdf/10.1177/03000605231159335"
+        },
+        {
+          "title": "Protecting scientific integrity in an age of generative AI",
+          "snippet": "\u2026 AI systems are constructed with computational procedures that learn from large bodies of human-authored and curated text\u2026 push the expected boundaries of automated content creation. \u2026",
+          "link": "https://www.pnas.org/doi/abs/10.1073/pnas.2407886121",
+          "publicationInfo": "W Blau, VG Cerf, J Enriquez, JS Francisco\u2026 - Proceedings of the \u2026, 2024 - pnas.org",
+          "year": 2024,
+          "citedBy": 56,
+          "pdfUrl": "https://www.pnas.org/doi/pdf/10.1073/pnas.2407886121"
+        },
+        {
+          "title": "Exploring the use of personalized AI for identifying misinformation on social media",
+          "snippet": "\u2026 and the context of automation bias in decision support systems or negative machine \u2026 systems and content curation algorithms that, similar to the context of our study, are personalized AI \u2026",
+          "link": "https://dl.acm.org/doi/abs/10.1145/3544548.3581219",
+          "publicationInfo": "F Jahanbakhsh, Y Katsis, D Wang, L Popa\u2026 - \u2026 in Computing Systems, 2023 - dl.acm.org",
+          "year": 2023,
+          "citedBy": 46,
+          "pdfUrl": "https://dl.acm.org/doi/pdf/10.1145/3544548.3581219?utm_source=miragenews&utm_medium=miragenews&utm_campaign=news"
+        },
+        {
+          "title": "Enhancing customer experience through AI-enabled content personalization in e-commerce marketing",
+          "snippet": "\u2026 a purchase, signing up for a newsletter, or filling out a contact form. \u2026 Automation, driven by AI algorithms, is invaluable for \u2026 Content Curation: Media streaming services often employ AI \u2026",
+          "link": "https://www.taylorfrancis.com/chapters/edit/10.1201/9781003450443-2/enhancing-customer-experience-ai-enabled-content-personalization-commerce-marketing-tarun-kumar-vashishth-vikas-kewal-krishan-sharma-bhupendra-kumar-sachin-chaudhary-rajneesh-panwar",
+          "publicationInfo": "TK Vashishth, KK Sharma, B Kumar\u2026 - \u2026 artificial intelligence, 2024 - taylorfrancis.com",
+          "year": 2024,
+          "citedBy": 59,
+          "pdfUrl": null
+        }
+      ]
+    }
+  },
+  "recommendation_systems": {
+    "success": true,
+    "data": {
+      "papers": [
+        {
+          "title": "Personalization in education using recommendation system: an overview",
+          "snippet": "\u2026 During the last couple of decades, with the climb of YouTube, Amazon, Netflix, and various other such Web organizations, recommender systems have expected progressively more \u2026",
+          "link": "https://link.springer.com/chapter/10.1007/978-981-15-8744-3_5",
+          "publicationInfo": "SS Kundu, D Sarkar, P Jana, DK Kole - Computational Intelligence in \u2026, 2020 - Springer",
+          "year": 2020,
+          "citedBy": 32,
+          "pdfUrl": null
+        },
+        {
+          "title": "Personalized recommendation system based on collaborative filtering for IoT scenarios",
+          "snippet": "\u2026 and implementation of the collaborative filtering scheme based on TCC and CSK-means (TCCF). Section 4 presents our personalized recommendation model based on preference \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/8951278/",
+          "publicationInfo": "Z Cui, X Xu, X Cai, Y Cao, W Zhang\u2026 - IEEE Transactions on \u2026, 2020 - ieeexplore.ieee.org",
+          "year": 2020,
+          "citedBy": 581,
+          "pdfUrl": null
+        },
+        {
+          "title": "Recommendation Systems and Content Personalization: Algorithms, Applications, and Adaptive Learning",
+          "snippet": "\u2026 , recommendation systems and content personalization \u2026 content discovery, and deliver tailored digital experiences. These systems leverage sophisticated algorithms to curate content \u2026",
+          "link": "https://www.igi-global.com/chapter/recommendation-systems-and-content-personalization/360619",
+          "publicationInfo": "JA Venice, D Arivazhagan, N Suman\u2026 - AI for Large Scale \u2026, 2025 - igi-global.com",
+          "year": 2025,
+          "citedBy": 35,
+          "pdfUrl": null
+        },
+        {
+          "title": "Recommendation system model for personalized learning in higher education using content-based filtering method",
+          "snippet": "\u2026 recommendation system modeling for personalization \u2026 content-based filtering method is proposed for personalized learning using a recommendation system in an online learning system\u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9915109/",
+          "publicationInfo": "MR Julianti, Y Heryadi, B Yulianto\u2026 - 2022 International \u2026, 2022 - ieeexplore.ieee.org",
+          "year": 2022,
+          "citedBy": 10,
+          "pdfUrl": null
+        },
+        {
+          "title": "A review of content-based and context-based recommendation systems",
+          "snippet": "\u2026 recommendation systems. We have presented a context-aware recommender system to filter \u2026 Ribiere, \"A multipurpose ontology-based approach for personalised content filtering and \u2026",
+          "link": "https://www.learntechlib.org/p/219036/?nl=1",
+          "publicationInfo": "U Javed, K Shaukat, IA Hameed, F Iqbal\u2026 - \u2026 Journal of Emerging \u2026, 2021 - learntechlib.org",
+          "year": 2021,
+          "citedBy": 389,
+          "pdfUrl": "https://www.learntechlib.org/p/219036/article_219036.pdf"
+        },
+        {
+          "title": "Analysis of technologies for personalized content recommendations on the internet",
+          "snippet": "\u2026 In fact, the phenomenon of cutting the coverage of posts and entire accounts exists and arises due to the complex process of content filtering and personalization. Representatives of \u2026",
+          "link": "https://pdfs.semanticscholar.org/e9fe/1763a8a27808f1600a4036ebdaa2796ae5a2.pdf",
+          "publicationInfo": "O Lopakov, L Prokopovych\u2026 - \u041f\u0440\u0430\u0446\u0456 \u041e\u0434\u0435\u0441\u044c\u043a\u043e\u0433\u043e \u2026, 2022 - pdfs.semanticscholar.org",
+          "year": 2022,
+          "citedBy": 2,
+          "pdfUrl": "https://pdfs.semanticscholar.org/e9fe/1763a8a27808f1600a4036ebdaa2796ae5a2.pdf"
+        },
+        {
+          "title": "A systematic literature review on adaptive content recommenders in personalized learning environments from 2015 to 2020",
+          "snippet": "\u2026 In personalized learning, each student gets a customized \u2026 Hence the content recommender system in Personalized Learning \u2026 of the recommender systems, such as learner attributes, \u2026",
+          "link": "https://link.springer.com/article/10.1007/s40692-021-00199-4",
+          "publicationInfo": "NS Raj, VG Renumol - Journal of Computers in Education, 2022 - Springer",
+          "year": 2022,
+          "citedBy": 231,
+          "pdfUrl": "https://link.springer.com/content/pdf/10.1007/s40692-021-00199-4.pdf"
+        },
+        {
+          "title": "Personalized news recommendation: Methods and challenges",
+          "snippet": "\u2026 To help readers better understand feature-based user modeling methods in personalized news recommender systems, we summarize the additional user features (ID and news \u2026",
+          "link": "https://dl.acm.org/doi/abs/10.1145/3530257",
+          "publicationInfo": "C Wu, F Wu, Y Huang, X Xie - ACM Transactions on Information Systems, 2023 - dl.acm.org",
+          "year": 2023,
+          "citedBy": 229,
+          "pdfUrl": "https://arxiv.org/pdf/2106.08934"
+        },
+        {
+          "title": "Recommender systems leveraging multimedia content",
+          "snippet": "\u2026 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or \u2026",
+          "link": "https://dl.acm.org/doi/abs/10.1145/3407190",
+          "publicationInfo": "Y Deldjoo, M Schedl, P Cremonesi, G Pasi - ACM Computing Surveys \u2026, 2020 - dl.acm.org",
+          "year": 2020,
+          "citedBy": 309,
+          "pdfUrl": "https://www.researchgate.net/profile/Yashar-Deldjoo/publication/344454095_Recommender_Systems_Leveraging_Multimedia_Content/links/5f775999299bf1b53e098667/Recommender-Systems-Leveraging-Multimedia-Content.pdf"
+        },
+        {
+          "title": "Intelligent classification and personalized recommendation of e-commerce products based on machine learning",
+          "snippet": "\u2026 classification systems and personalized recommendation systems. It delineates the significance and application of personalized recommendation systems across e-commerce, content \u2026",
+          "link": "https://arxiv.org/abs/2403.19345",
+          "publicationInfo": "K Xu, H Zhou, H Zheng, M Zhu, Q Xin - arXiv preprint arXiv:2403.19345, 2024 - arxiv.org",
+          "year": 2403,
+          "citedBy": 108,
+          "pdfUrl": "https://arxiv.org/pdf/2403.19345"
+        },
+        {
+          "title": "A systematic review: machine learning based recommendation systems for e-learning",
+          "snippet": "\u2026 RS delivers personalized recommendations for learning materials based on individuals\u2019 \u2026 .16 from 35 papers relied on Content Filtering, 6 were Content-Based and 5 focused on \u2026",
+          "link": "https://link.springer.com/article/10.1007/s10639-019-10063-9",
+          "publicationInfo": "SS Khanal, PWC Prasad, A Alsadoon\u2026 - Education and Information \u2026, 2020 - Springer",
+          "year": 2020,
+          "citedBy": 455,
+          "pdfUrl": "https://researchoutput.csu.edu.au/ws/portalfiles/portal/56945122/37059927_Published_article.pdf"
+        },
+        {
+          "title": "The architectural implications of facebook's dnn-based personalized recommendation",
+          "snippet": "\u2026 Building highly accurate personalized recommendation systems poses unique challenges as user preferences and past interactions are represented as both dense and sparse features \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9065589/",
+          "publicationInfo": "U Gupta, CJ Wu, X Wang, M Naumov\u2026 - \u2026 Symposium on High \u2026, 2020 - ieeexplore.ieee.org",
+          "year": 2020,
+          "citedBy": 398,
+          "pdfUrl": "https://arxiv.org/pdf/1906.03109"
+        },
+        {
+          "title": "A systematic study on the recommender systems in the E-commerce",
+          "snippet": "\u2026 a personalized recommender system in e-commerce depending on the web mining \u2026 They proposed the workflow of a personalized recommender system in e-commerce that consists of \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9118884/",
+          "publicationInfo": "PM Alamdari, NJ Navimipour, M Hosseinzadeh\u2026 - Ieee \u2026, 2020 - ieeexplore.ieee.org",
+          "year": 2020,
+          "citedBy": 242,
+          "pdfUrl": "https://ieeexplore.ieee.org/iel7/6287639/6514899/09118884.pdf"
+        },
+        {
+          "title": "A systematic review and research perspective on recommender systems",
+          "snippet": "\u2026 Content-based filtering approaches are more common in systems like personalized news recommender systems\u2026 offer intelligent movie recommendations with personalized suggestions. \u2026",
+          "link": "https://link.springer.com/article/10.1186/s40537-022-00592-5",
+          "publicationInfo": "D Roy, M Dutta - Journal of Big Data, 2022 - Springer",
+          "year": 2022,
+          "citedBy": 577,
+          "pdfUrl": "https://link.springer.com/content/pdf/10.1186/s40537-022-00592-5.pdf"
+        },
+        {
+          "title": "Resolving data sparsity and cold start problem in collaborative filtering recommender system using linked open data",
+          "snippet": "\u2026 such a purpose in which collaborative filtering is widely used. Collaborative filtering (CF) has been extensively utilized to offer personalized recommendations in electronic business and \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0957417420300737",
+          "publicationInfo": "S Natarajan, S Vairavasundaram, S Natarajan\u2026 - Expert Systems with \u2026, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 345,
+          "pdfUrl": "https://opus.lib.uts.edu.au/bitstream/10453/147356/3/E75BD494-B749-4ADC-8CC7-8558C33E5667%20am%20Combined.pdf"
+        },
+        {
+          "title": "Recommendation systems: Algorithms, challenges, metrics, and business opportunities",
+          "snippet": "\u2026 Recommender systems aim to solve that information overload \u2026 , personalized recommendations of items/products to users according to their preferences [2]. A recommendation system (\u2026",
+          "link": "https://www.mdpi.com/2076-3417/10/21/7748",
+          "publicationInfo": "Z Fayyaz, M Ebrahimian, D Nawara, A Ibrahim\u2026 - applied sciences, 2020 - mdpi.com",
+          "year": 2020,
+          "citedBy": 455,
+          "pdfUrl": null
+        },
+        {
+          "title": "Do not blame it on the algorithm: an empirical assessment of multiple recommender systems and their impact on content diversity",
+          "snippet": "\u2026 logics can be compared to what extent we can observe differences between personalized and non-personalized recommendation settings, or, in other words, how well the \u2026",
+          "link": "https://www.taylorfrancis.com/chapters/edit/10.4324/9780429243912-4/blame-algorithm-judith-m%C3%B6ller-damian-trilling-natali-helberger-bram-van-es",
+          "publicationInfo": "J M\u00f6ller, D Trilling, N Helberger\u2026 - Digital media, political \u2026, 2020 - taylorfrancis.com",
+          "year": 2020,
+          "citedBy": 440,
+          "pdfUrl": "https://www.tandfonline.com/doi/pdf/10.1080/1369118X.2018.1444076"
+        },
+        {
+          "title": "MoodleREC: A recommendation system for creating courses using the moodle e-learning platform",
+          "snippet": "\u2026 This paper proposes a hybrid recommender system, MoodleRec, implemented as a plug-in of the Moodle Learning Management System. MoodleRec can sort through a set of \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0747563219303802",
+          "publicationInfo": "C De Medio, C Limongelli, F Sciarrone\u2026 - Computers in Human \u2026, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 259,
+          "pdfUrl": "https://iris.uniroma1.it/bitstream/11573/1384788/3/DeMedio_postprint_MoodleREC_2020.pdf"
+        },
+        {
+          "title": "A survey of recommendation systems: recommendation models, techniques, and application fields",
+          "snippet": "\u2026 we focus on enabling users to access personalized health information as well as everyday \u2026 , the recommendation system based on the Content-Based model that provides personalized \u2026",
+          "link": "https://www.mdpi.com/2079-9292/11/1/141",
+          "publicationInfo": "H Ko, S Lee, Y Park, A Choi - Electronics, 2022 - mdpi.com",
+          "year": 2022,
+          "citedBy": 675,
+          "pdfUrl": null
+        },
+        {
+          "title": "An extensive study on the evolution of context-aware personalized travel recommender systems",
+          "snippet": "\u2026 recommender systems. This paper details about the study conducted on the evolution of travel recommender systems\u2026 used for classification and recommendation processes and metrics \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0306457319300111",
+          "publicationInfo": "S Renjith, A Sreekumar, M Jathavedan - Information Processing & \u2026, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 196,
+          "pdfUrl": "https://www.academia.edu/download/105583473/j.ipm.2019.10207820230907-1-2z092i.pdf"
+        }
+      ]
+    }
+  },
+  "automated_reporting": {
+    "success": true,
+    "data": {
+      "papers": [
+        {
+          "title": "A survey on automatic generation of medical imaging reports based on deep learning",
+          "snippet": "\u2026 Recent progress in deep learning has led to significant advancements in image captioning. In this research, we focus on medical report generation based on deep learning. Essentially, \u2026",
+          "link": "https://link.springer.com/article/10.1186/s12938-023-01113-y",
+          "publicationInfo": "T Pang, P Li, L Zhao - BioMedical Engineering OnLine, 2023 - Springer",
+          "year": 2023,
+          "citedBy": 56,
+          "pdfUrl": "https://link.springer.com/content/pdf/10.1186/s12938-023-01113-y.pdf"
+        },
+        {
+          "title": "Automated radiology report generation: A review of recent advances",
+          "snippet": "\u2026 of deep learning research and with radiology producing 90% of healthcare data [5], it is an attractive area for deep learning \u2026 of deep learning is automated radiology report generation (\u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/10545538/",
+          "publicationInfo": "P Sloan, P Clatworthy, E Simpson\u2026 - IEEE Reviews in \u2026, 2024 - ieeexplore.ieee.org",
+          "year": 2024,
+          "citedBy": 38,
+          "pdfUrl": "https://arxiv.org/pdf/2405.10842?"
+        },
+        {
+          "title": "Automatic report generation for chest X-ray images via adversarial reinforcement learning",
+          "snippet": "\u2026 Previous medical-report-generation models are mostly trained by minimizing the cross-\u2026 , an adversarial reinforcement learning approach is proposed for report generation of chest x-ray \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9343868/",
+          "publicationInfo": "D Hou, Z Zhao, Y Liu, F Chang, S Hu - IEEE Access, 2021 - ieeexplore.ieee.org",
+          "year": 2021,
+          "citedBy": 42,
+          "pdfUrl": "https://ieeexplore.ieee.org/iel7/6287639/9312710/09343868.pdf"
+        },
+        {
+          "title": "Generative AI for automated business report generation and analysis",
+          "snippet": "\u2026 of generative artificial intelligence (AI) in automating business report generation and analysis. \u2026 natural language processing (NLP) and machine learning (ML) techniques, to streamline \u2026",
+          "link": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5270002",
+          "publicationInfo": "R Modak - World Journal of Advanced Engineering Technology \u2026, 2025 - papers.ssrn.com",
+          "year": 2025,
+          "citedBy": null,
+          "pdfUrl": "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5270002"
+        },
+        {
+          "title": "Automating Radiology Report Generation: A Systematic Review of Deep Learning Methods",
+          "snippet": "\u2026 research on deep learning-based radiology report generation, \u2026 deep learning techniques to generate radiology reports from \u2026 deep learning has significantly advanced radiology report \u2026",
+          "link": "https://www.preprints.org/manuscript/202503.2218",
+          "publicationInfo": "JY Min, G Jung - 2025 - preprints.org",
+          "year": 2025,
+          "citedBy": null,
+          "pdfUrl": "https://www.preprints.org/frontend/manuscript/a37c3b6ed6acba21dda08d3f93736220/download_pub"
+        },
+        {
+          "title": "Trust in AutoML: exploring information needs for establishing trust in automated machine learning systems",
+          "snippet": "\u2026 In AutoML, AI methods are used to generate and optimize machine learning models by auto\u2026 deploy a model produced using automated methods. We report results from three studies \u2013 \u2026",
+          "link": "https://dl.acm.org/doi/abs/10.1145/3377325.3377501",
+          "publicationInfo": "J Drozdal, J Weisz, D Wang, G Dass, B Yao\u2026 - Proceedings of the 25th \u2026, 2020 - dl.acm.org",
+          "year": 2020,
+          "citedBy": 198,
+          "pdfUrl": "https://arxiv.org/pdf/2001.06509"
+        },
+        {
+          "title": "When radiology report generation meets knowledge graph",
+          "snippet": "\u2026 Automatic radiology report generation has been an attracting \u2026 Deep learning techniques for natural image captioning are \u2026 explored deep learning based methods for report generation. \u2026",
+          "link": "https://aaai.org/ojs/index.php/AAAI/article/view/6989",
+          "publicationInfo": "Y Zhang, X Wang, Z Xu, Q Yu, A Yuille, D Xu - \u2026 on artificial intelligence, 2020 - aaai.org",
+          "year": 2020,
+          "citedBy": 391,
+          "pdfUrl": "https://aaai.org/ojs/index.php/AAAI/article/download/6989/6843"
+        },
+        {
+          "title": "A machine learning based help desk system for IT service management",
+          "snippet": "A help desk system that acts as a single point of contact between users and IT staff is introduced in this paper. It utilizes an accurate ticket classification machine learning model to \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S1319157819300515",
+          "publicationInfo": "F Al-Hawari, H Barham - Journal of King Saud University-Computer and \u2026, 2021 - Elsevier",
+          "year": 2021,
+          "citedBy": 186,
+          "pdfUrl": null
+        },
+        {
+          "title": "Artificial intelligence, machine learning, deep learning, and blockchain in financial and banking services: A comprehensive review",
+          "snippet": "\u2026 are improving operational efficiency in banks by automating \u2026 , compliance checks, and report generation, resulting in decreased \u2026 In conclusion, machine learning and deep learning are \u2026",
+          "link": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4855893",
+          "publicationInfo": "M Paramesha, N Rane, J Rane - \u2026 Learning, Deep Learning, and \u2026, 2024 - papers.ssrn.com",
+          "year": 2024,
+          "citedBy": 91,
+          "pdfUrl": "https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=4855893"
+        },
+        {
+          "title": "Machine learning for electronic design automation: A survey",
+          "snippet": "\u2026 Although the application of machine learning (ML) techniques in electronic design automation (EDA) can trace its history back to the 1990s, the recent breakthrough of ML and the \u2026",
+          "link": "https://dl.acm.org/doi/abs/10.1145/3451179",
+          "publicationInfo": "G Huang, J Hu, Y He, J Liu, M Ma, Z Shen\u2026 - \u2026 on Design Automation \u2026, 2021 - dl.acm.org",
+          "year": 2021,
+          "citedBy": 373,
+          "pdfUrl": "https://arxiv.org/pdf/2102.03357"
+        },
+        {
+          "title": "The role of machine learning in clinical research: transforming the future of evidence generation",
+          "snippet": "\u2026 An appealing application of ML, specifically NLP, to study data management is to automate data collection into case report forms, decreasing the time, expense, and potential for error \u2026",
+          "link": "https://link.springer.com/article/10.1186/s13063-021-05489-x",
+          "publicationInfo": "EH Weissler, T Naumann, T Andersson, R Ranganath\u2026 - Trials, 2021 - Springer",
+          "year": 2021,
+          "citedBy": 344,
+          "pdfUrl": "https://link.springer.com/content/pdf/10.1186/s13063-021-05489-x.pdf"
+        },
+        {
+          "title": "Artificial intelligence and machine learning in cancer imaging",
+          "snippet": "\u2026 generate automated reports, and as a means of reducing repetitive tasks by radiologists 77 . For the clinicians receiving the radiology report, \u2026 alert clinicians to actionable reports, so that \u2026",
+          "link": "https://www.nature.com/articles/s43856-022-00199-0",
+          "publicationInfo": "DM Koh, N Papanikolaou, U Bick, R Illing\u2026 - Communications \u2026, 2022 - nature.com",
+          "year": 2022,
+          "citedBy": 282,
+          "pdfUrl": "https://www.nature.com/articles/s43856-022-00199-0.pdf"
+        },
+        {
+          "title": "COVID-Classifier: An automated machine learning model to assist in the diagnosis of COVID-19 infection in chest x-ray images",
+          "snippet": "\u2026 We hypothesized that machine learning-based classifiers can reliably distinguish the CXR \u2026 to generate a set of optimal features of CXR images to build an efficient machine learning \u2026",
+          "link": "https://www.nature.com/articles/s41598-021-88807-2",
+          "publicationInfo": "A Zargari Khuzani, M Heidari, SA Shariati - Scientific Reports, 2021 - nature.com",
+          "year": 2021,
+          "citedBy": 250,
+          "pdfUrl": "https://www.nature.com/articles/s41598-021-88807-2.pdf"
+        },
+        {
+          "title": "Preparing medical imaging data for machine learning",
+          "snippet": "\u2026 or to assist the radiologist by automating tasks such as lesion \u2026 Automatic lesion detection by using machine learning has \u2026 learning, interactive reporting, and synoptic reporting may \u2026",
+          "link": "https://pubs.rsna.org/doi/abs/10.1148/radiol.2020192224",
+          "publicationInfo": "MJ Willemink, WA Koszek, C Hardell, J Wu\u2026 - Radiology, 2020 - pubs.rsna.org",
+          "year": 2020,
+          "citedBy": 1035,
+          "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7104701/pdf/nihpp-rs4169007v1.pdf"
+        },
+        {
+          "title": "Deep learning-enabled medical computer vision",
+          "snippet": "\u2026 64 ), automated report generation, and temporal tracking (eg image registration to track tumor growth over time). In the sections below, we explore vision-based applications in other \u2026",
+          "link": "https://www.nature.com/articles/s41746-020-00376-2",
+          "publicationInfo": "A Esteva, K Chou, S Yeung, N Naik, A Madani\u2026 - NPJ digital \u2026, 2021 - nature.com",
+          "year": 2021,
+          "citedBy": 1274,
+          "pdfUrl": "https://www.nature.com/articles/s41746-020-00376-2.pdf"
+        },
+        {
+          "title": "Streamlined bridge inspection system utilizing unmanned aerial vehicles (UAVs) and machine learning",
+          "snippet": "\u2026 using computer vision techniques; (2) generate a 3D point-cloud model and segment structural elements using human-in-the-loop machine learning; and (3) establish a georeferenced \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0263224120305868",
+          "publicationInfo": "BJ Perry, Y Guo, R Atadero, JW Van De Lindt - Measurement, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 167,
+          "pdfUrl": null
+        },
+        {
+          "title": "The role of machine learning in transforming business intelligence",
+          "snippet": "\u2026 , analysis, visualization, and reporting of data to generate insights and support decision-making. It \u2026 can automate and optimize the data preparation and integration processes in BI. \u2026",
+          "link": "https://www.academia.edu/download/123707124/4-1-2-550.pdf",
+          "publicationInfo": "JP Bharadiya - \u2026 Journal of Computing and Artificial Intelligence, 2023 - academia.edu",
+          "year": 2023,
+          "citedBy": 95,
+          "pdfUrl": "https://www.academia.edu/download/123707124/4-1-2-550.pdf"
+        },
+        {
+          "title": "Integration of novel monitoring devices with machine learning technology for scalable cardiovascular management",
+          "snippet": "\u2026 Consumer devices have shifted this landscape, empowering individuals to access their data from device companies, who then directly provide automated reports without having to notify \u2026",
+          "link": "https://www.nature.com/articles/s41569-020-00445-9",
+          "publicationInfo": "C Krittanawong, AJ Rogers, KW Johnson\u2026 - Nature Reviews \u2026, 2021 - nature.com",
+          "year": 2021,
+          "citedBy": 228,
+          "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7545156/pdf/41569_2020_Article_445.pdf"
+        },
+        {
+          "title": "A fully automated deep learning-based network for detecting COVID-19 from a new and large lung CT scan dataset",
+          "snippet": "This paper aims to propose a high-speed and accurate fully-automated method to detect COVID-19 from the patient's chest CT scan images. We introduce a new dataset that contains \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S1746809421001853",
+          "publicationInfo": "M Rahimzadeh, A Attar, SM Sakhaei - Biomedical Signal Processing and \u2026, 2021 - Elsevier",
+          "year": 2021,
+          "citedBy": 360,
+          "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8011666/pdf/main.pdf"
+        },
+        {
+          "title": "A review of deep learning in medical imaging: Imaging traits, technology trends, case studies with progress highlights, and future promises",
+          "snippet": "\u2026 automating image analysis, leading to what we can term \u201ccomputational radiology\u201d [6], [7]. Among the automated \u2026 [118], aimed to automate a clinical reporting system for CT of COVID-19 \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9363915/",
+          "publicationInfo": "SK Zhou, H Greenspan, C Davatzikos\u2026 - Proceedings of the \u2026, 2021 - ieeexplore.ieee.org",
+          "year": 2021,
+          "citedBy": 1144,
+          "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10544772/pdf/nihms-1699223.pdf"
+        }
+      ]
+    }
+  },
+  "financial_visualization": {
+    "success": true,
+    "data": {
+      "papers": [
+        {
+          "title": "The Importance of Data Visualization in Financial Business Analytics",
+          "snippet": "\u2026 Our findings further support the notion that interactive and real-time visualizations provide significant advantages over traditional reporting methods (Few, 2012). However, this research \u2026",
+          "link": "https://www.researchgate.net/profile/Sunday-Oladele-2/publication/387470933_The_Importance_of_Data_Visualization_in_Financial_Business_Analytics/links/676f0c68c1b0135465fbef16/The-Importance-of-Data-Visualization-in-Financial-Business-Analytics.pdf",
+          "publicationInfo": "M Abid, T Dorra, S Oladele, P Dan - 2024 - researchgate.net",
+          "year": 2024,
+          "citedBy": null,
+          "pdfUrl": "https://www.researchgate.net/profile/Sunday-Oladele-2/publication/387470933_The_Importance_of_Data_Visualization_in_Financial_Business_Analytics/links/676f0c68c1b0135465fbef16/The-Importance-of-Data-Visualization-in-Financial-Business-Analytics.pdf"
+        },
+        {
+          "title": "Real\u2010time data visualization and autonomous finance: uses of emerging technologies",
+          "snippet": "\u2026 Equipped with embedded analytics, staff can gain real-time insights into customer purchase history and product usage. This empowers them to identify cross-selling and up-selling \u2026",
+          "link": "https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394233250.ch8",
+          "publicationInfo": "G Singh, L Verma, A Baliyan - \u2026 for Autonomous Finance, 2025 - Wiley Online Library",
+          "year": 2025,
+          "citedBy": 1,
+          "pdfUrl": null
+        },
+        {
+          "title": "Enhancing Financial Data Visualization for Investment Decision-Making",
+          "snippet": "\u2026 visualization tools on financial analysis performance [1] to the broader role of data visualization in conveying financial information [2] \u2026 the frontier of real-time stock market forecasting, we \u2026",
+          "link": "https://arxiv.org/abs/2403.18822",
+          "publicationInfo": "N Patel, H Shah, K Mewada - arXiv preprint arXiv:2403.18822, 2023 - arxiv.org",
+          "year": 2403,
+          "citedBy": 1,
+          "pdfUrl": "https://arxiv.org/pdf/2403.18822"
+        },
+        {
+          "title": "Real-time analytics in financial market forecasting: a big data approach",
+          "snippet": "\u2026 Short-Term Memory (LSTM) networks have shown promise in time-series prediction tasks, and their utility in real-time financial market forecasting forms the crux of this investigation. \u2026",
+          "link": "https://dl.acm.org/doi/abs/10.1145/3644713.3644743",
+          "publicationInfo": "ME Balbaa, O Astanakulov, N Ismailova\u2026 - Proceedings of the 7th \u2026, 2023 - dl.acm.org",
+          "year": 2023,
+          "citedBy": 9,
+          "pdfUrl": "https://dl.acm.org/doi/pdf/10.1145/3644713.3644743"
+        },
+        {
+          "title": "IoT data visualization for business intelligence in corporate finance",
+          "snippet": "\u2026 Corporate analytics management is introduced to enhance the data analysis system's risk, \u2026 Financial risk analysis is implemented to improve data quality management initiative helps \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0306457321002181",
+          "publicationInfo": "C Shao, Y Yang, S Juneja, T GSeetharam - Information Processing & \u2026, 2022 - Elsevier",
+          "year": 2022,
+          "citedBy": 164,
+          "pdfUrl": null
+        },
+        {
+          "title": "The use of predictive analytics in finance",
+          "snippet": "\u2026 when using financial data. This \u2026 financial managers and risk oversight professionals to achieve better outcomes. This review brings the various predictive analytic methods in finance \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S2405918822000071",
+          "publicationInfo": "D Broby - The Journal of Finance and Data Science, 2022 - Elsevier",
+          "year": 2022,
+          "citedBy": 103,
+          "pdfUrl": null
+        },
+        {
+          "title": "Financial data modeling: an analysis of factors influencing big data analytics-driven financial decision quality",
+          "snippet": "\u2026 Figure 1 exhibits a path visualization of our research proposed model to address the \u2026 impact on real-time financial decision quality that led to improved outcomes for their firms. \u2026",
+          "link": "https://www.emerald.com/jm2/article/20/2/301/1242992",
+          "publicationInfo": "M Al-Okaily, A Al-Okaily - Journal of Modelling in Management, 2025 - emerald.com",
+          "year": 2025,
+          "citedBy": 57,
+          "pdfUrl": null
+        },
+        {
+          "title": "\u2026\u00a0trends and technological advancements in data lakes for the financial sector: An in-depth analysis of data processing, analytics, and infrastructure innovations",
+          "snippet": "\u2026 for handling diverse data types and supporting both batch and real-time analytics. This paper \u2026 a business intelligence team uses Tableau or Power BI for data visualization. The ability of \u2026",
+          "link": "https://www.researchgate.net/profile/Hariharan-Pappil-Kothandapani-2/publication/386275841_EMERGING_TRENDS_AND_TECHNOLOGICAL_ADVANCEMENTS_IN_DATA_LAKES_FOR_THE_FINANCIAL_SECTOR_AN_IN-DEPTH_ANALYSIS_OF_DATA_PROCESSING_ANALYTICS_AND_INFRASTRUCTURE_INNOVATIONS/links/674b336a876bd1777830a1ea/EMERGING-TRENDS-AND-TECHNOLOGICAL-ADVANCEMENTS-IN-DATA-LAKES-FOR-THE-FINANCIAL-SECTOR-AN-IN-DEPTH-ANALYSIS-OF-DATA-PROCESSING-ANALYTICS-AND-INFRASTRUCTURE-INNOVATIONS.pdf",
+          "publicationInfo": "HP Kothandapani - Quarterly Journal of Emerging Technologies \u2026, 2023 - researchgate.net",
+          "year": 2023,
+          "citedBy": 94,
+          "pdfUrl": "https://www.researchgate.net/profile/Hariharan-Pappil-Kothandapani-2/publication/386275841_EMERGING_TRENDS_AND_TECHNOLOGICAL_ADVANCEMENTS_IN_DATA_LAKES_FOR_THE_FINANCIAL_SECTOR_AN_IN-DEPTH_ANALYSIS_OF_DATA_PROCESSING_ANALYTICS_AND_INFRASTRUCTURE_INNOVATIONS/links/674b336a876bd1777830a1ea/EMERGING-TRENDS-AND-TECHNOLOGICAL-ADVANCEMENTS-IN-DATA-LAKES-FOR-THE-FINANCIAL-SECTOR-AN-IN-DEPTH-ANALYSIS-OF-DATA-PROCESSING-ANALYTICS-AND-INFRASTRUCTURE-INNOVATIONS.pdf"
+        },
+        {
+          "title": "Exploring how consumer goods companies innovate in the digital age: The role of big data analytics companies",
+          "snippet": "\u2026 reviews (OCRs), ie, real-time customers\u2019 evaluations of products, \u2026 Based on an in-depth qualitative analysis, we develop the \u2026 they are launched on the market, and innovate. Theoretical \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0148296320305956",
+          "publicationInfo": "MM Mariani, SF Wamba - Journal of Business Research, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 330,
+          "pdfUrl": "https://centaur.reading.ac.uk/93071/1/24Sep2020Anonymous_manuscript_revised_Centaur.pdf"
+        },
+        {
+          "title": "AI-Enhanced Data Warehousing: Optimizing ETL Processes for Real-Time Analytics",
+          "snippet": "\u2026 ability to process data in real-time has transformed how we respond to market changes.\u201d \u2026 tables and formulas that can be used to visualize the data in Excel charts. Each table presents \u2026",
+          "link": "https://www.academia.edu/download/119017377/300_327_redc_2020.pdf",
+          "publicationInfo": "H Gadde - Revista de Inteligencia Artificial en Medicina, 2020 - academia.edu",
+          "year": 2020,
+          "citedBy": 215,
+          "pdfUrl": "https://www.academia.edu/download/119017377/300_327_redc_2020.pdf"
+        },
+        {
+          "title": "Virtual marketplace dynamics data, spatial analytics, and customer engagement tools in a real-time interoperable decentralized metaverse",
+          "snippet": "\u2026 Real-time assessment of digital content engagement through data visualization and analytics tools can \u2026 or financial relationships that could be construed as a potential conflict of interest. \u2026",
+          "link": "https://www.ceeol.com/search/article-detail?id=1045817",
+          "publicationInfo": "K Valaskova, V Machova, E Lewis - Linguistic and Philosophical \u2026, 2022 - ceeol.com",
+          "year": 2022,
+          "citedBy": 89,
+          "pdfUrl": null
+        },
+        {
+          "title": "Sparse Attention Combined with RAG Technology for Financial Data Analysis",
+          "snippet": "\u2026 In response to the challenges of multimodal data integration, real-time information retrieval, \u2026 in financial stock analysis, this paper proposes an innovative financial analysis framework\u2014\u2026",
+          "link": "https://hal.science/hal-05180963/",
+          "publicationInfo": "Z Zhang, K Xu, Y Qiao, A Wilson - Journal of Computer Science \u2026, 2025 - hal.science",
+          "year": 2025,
+          "citedBy": 28,
+          "pdfUrl": "https://hal.science/hal-05180963/document"
+        },
+        {
+          "title": "Optimizing business decision-making with advanced data analytics techniques",
+          "snippet": "\u2026 , such as finance and healthcare. For instance, financial institutions use real-time analytics to \u2026 Additionally, the increasing adoption of data visualization tools and self-service analytics \u2026",
+          "link": "https://www.researchgate.net/profile/Oluchukwu-Oluoha-2/publication/393514095_Optimizing_Business_Decision-Making_with_Advanced_Data_Analytics_Techniques/links/686e0ba307b3253fd1cd2f79/Optimizing-Business-Decision-Making-with-Advanced-Data-Analytics-Techniques.pdf",
+          "publicationInfo": "O Oluoha, A Odeshina, O Reis, F Okpeke\u2026 - Iconic Res Eng \u2026, 2022 - researchgate.net",
+          "year": 2022,
+          "citedBy": 35,
+          "pdfUrl": "https://www.researchgate.net/profile/Oluchukwu-Oluoha-2/publication/393514095_Optimizing_Business_Decision-Making_with_Advanced_Data_Analytics_Techniques/links/686e0ba307b3253fd1cd2f79/Optimizing-Business-Decision-Making-with-Advanced-Data-Analytics-Techniques.pdf"
+        },
+        {
+          "title": "The role of machine learning in transforming business intelligence",
+          "snippet": "\u2026 ML-driven data visualization and reporting enable interactive \u2026 is applied to financial data for forecasting future financial \u2026 Real-time analysis enables businesses to detect emerging trends\u2026",
+          "link": "https://www.academia.edu/download/123707124/4-1-2-550.pdf",
+          "publicationInfo": "JP Bharadiya - International Journal of Computing and Artificial \u2026, 2023 - academia.edu",
+          "year": 2023,
+          "citedBy": 95,
+          "pdfUrl": "https://www.academia.edu/download/123707124/4-1-2-550.pdf"
+        },
+        {
+          "title": "Real-time analytics, incident response process agility and enterprise cybersecurity performance: A contingent resource-based analysis",
+          "snippet": "\u2026 threats, and (2) Real-time analytics (RTA) gives organizations a \u2026 , we analyzed in-depth data from twenty expert interviews \u2026 , and on-demand and continuous data analysis) to detect and \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S026840122100027X",
+          "publicationInfo": "A Naseer, H Naseer, A Ahmad, SB Maynard\u2026 - \u2026 Journal of Information \u2026, 2021 - Elsevier",
+          "year": 2021,
+          "citedBy": 105,
+          "pdfUrl": null
+        },
+        {
+          "title": "Big data analytics: Computational intelligence techniques and application areas",
+          "snippet": "\u2026 Big Data utilization. Different computational intelligence techniques have been considered as tools for Big Data analytics. We also explore the powerful combination of Big Data and \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0040162517318498",
+          "publicationInfo": "R Iqbal, F Doctor, B More, S Mahmud\u2026 - \u2026 Forecasting and Social \u2026, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 359,
+          "pdfUrl": "https://pureportal.coventry.ac.uk/files/23233843/Binder2.pdf"
+        },
+        {
+          "title": "Data-driven decision-making: Revolutionizing management in the information era",
+          "snippet": "\u2026 Data Visualization Data visualization is the art of presenting \u2026 facility demonstrates how real-time data analysis was utilized \u2026 and complexity of financial data. Implementing effective cyber \u2026",
+          "link": "https://newjaigs.org/index.php/JAIGS/article/view/131",
+          "publicationInfo": "O Sarioguz, E Miser - Journal of Artificial Intelligence General science \u2026, 2024 - newjaigs.org",
+          "year": 2024,
+          "citedBy": 26,
+          "pdfUrl": "https://newjaigs.org/index.php/JAIGS/article/download/131/98"
+        },
+        {
+          "title": "Ai-Powered Decision Making In Rpa Workflows: The Rise Of Intelligent Decision Engines",
+          "snippet": "\u2026 for decision automation \u2022 Visualize real-time decision-making \u2026 Real-time stream processing is critical in sectors like finance (\u2026 (ML), and real-time analytics to make dynamic decisions \u2026",
+          "link": "https://www.researchgate.net/profile/Narendra-Maddukuri/publication/390562818_AI-POWERED_DECISION_MAKING_IN_RPA_WORKFLOWS_THE_RISE_OF_INTELLIGENT_DECISION_ENGINES/links/68044d5aded43315572deb87/AI-POWERED-DECISION-MAKING-IN-RPA-WORKFLOWS-THE-RISE-OF-INTELLIGENT-DECISION-ENGINES.pdf",
+          "publicationInfo": "N Maddukuri - Intelligence, 2023 - researchgate.net",
+          "year": 2023,
+          "citedBy": 162,
+          "pdfUrl": "https://www.researchgate.net/profile/Narendra-Maddukuri/publication/390562818_AI-POWERED_DECISION_MAKING_IN_RPA_WORKFLOWS_THE_RISE_OF_INTELLIGENT_DECISION_ENGINES/links/68044d5aded43315572deb87/AI-POWERED-DECISION-MAKING-IN-RPA-WORKFLOWS-THE-RISE-OF-INTELLIGENT-DECISION-ENGINES.pdf"
+        },
+        {
+          "title": "Introduction of a real time location system to enhance the warehouse safety and operational efficiency",
+          "snippet": "\u2026 Market research has been conducted to compare different \u2026 several methods and data visualization tools are proposed to \u2026 , (6) impact analysis, and (7) faults analysis. The results \u2026",
+          "link": "https://www.sciencedirect.com/science/article/pii/S0925527319303676",
+          "publicationInfo": "F Halawa, H Dauod, IG Lee, Y Li, SW Yoon\u2026 - International Journal of \u2026, 2020 - Elsevier",
+          "year": 2020,
+          "citedBy": 137,
+          "pdfUrl": null
+        },
+        {
+          "title": "Real-time economics: A new platform to track the impacts of COVID-19 on people, businesses, and communities using private sector data",
+          "snippet": "\u2026 statistics publicly on the data visualization platform, typically \u2026 analysis as we obtain and analyze more data, both from the \u2026 business market shares, we do not report levels of the series. \u2026",
+          "link": "https://opportunityinsights.org/wp-content/uploads/2020/06/Short_Covid_Paper.pdf",
+          "publicationInfo": "R Chetty, JN Friedman, N Hendren\u2026 - NBER working \u2026, 2020 - opportunityinsights.org",
+          "year": 2020,
+          "citedBy": 156,
+          "pdfUrl": "https://opportunityinsights.org/wp-content/uploads/2020/06/Short_Covid_Paper.pdf"
+        }
+      ]
+    }
+  },
+  "content_aggregation": {
+    "success": true,
+    "data": {
+      "papers": [
+        {
+          "title": "Advanced News Aggregation and Content Generation Using LLMs and NLP Algorithms",
+          "snippet": "\u2026 in NLP, transformers soon became widely adopted for a wide range of NLP tasks. \u2026 , leverage transformer architecture to generate coherent texts and summarize content [3,4]. Due to the \u2026",
+          "link": "https://ejaset.com/index.php/journal/article/view/229",
+          "publicationInfo": "A Neupane, K Khanal, N Nepal, N Dangi - European Journal of Applied \u2026, 2025 - ejaset.com",
+          "year": 2025,
+          "citedBy": 1,
+          "pdfUrl": "https://ejaset.com/index.php/journal/article/download/229/174"
+        },
+        {
+          "title": "News Aggregation And Summarisation",
+          "snippet": "\u2026 This is because NLP plays an important role in removing stop \u2026 , the researchers leveraged NLP-based text summarization to \u2026 of content quality and credibility in news aggregation and \u2026",
+          "link": "https://www.researchgate.net/profile/Mafas-Raheem/publication/386256609_News_Aggregation_And_Summarisation/links/674ab05b359dcb4d9d457cd5/News-Aggregation-And-Summarisation.pdf",
+          "publicationInfo": "CW Hoe, M Raheem, NF Abubacker - Journal of Applied \u2026, 2024 - researchgate.net",
+          "year": 2024,
+          "citedBy": 1,
+          "pdfUrl": "https://www.researchgate.net/profile/Mafas-Raheem/publication/386256609_News_Aggregation_And_Summarisation/links/674ab05b359dcb4d9d457cd5/News-Aggregation-And-Summarisation.pdf"
+        },
+        {
+          "title": "Nlp based text summarization techniques for news articles",
+          "snippet": "\u2026 as an effective news aggregation and summarization tool, \u2026 abstractive summarization methods, to condense news content \u2026 in the field of NLP- based text summarization fornews articles \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/10503001/",
+          "publicationInfo": "BL Kumaran, NV Ravindran - 2024 IEEE International \u2026, 2024 - ieeexplore.ieee.org",
+          "year": 2024,
+          "citedBy": 5,
+          "pdfUrl": null
+        },
+        {
+          "title": "Research of the methods of creating content aggregation systems",
+          "snippet": "\u2026 on web crawling technologies, summarization, searching for fuzzy \u2026 Content aggregators are not limited to news gathering since \u2026 based on cosine similarity and NLP techniques --34!. \u2026",
+          "link": "https://cyberleninka.ru/article/n/research-of-the-methods-of-creating-content-aggregation-systems",
+          "publicationInfo": "KD Aleksandrovich - \u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u044b\u0435 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0438 \u0432\u044b\u0447\u0438\u0441\u043b\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u2026, 2022 - cyberleninka.ru",
+          "year": 2022,
+          "citedBy": 1,
+          "pdfUrl": null
+        },
+        {
+          "title": "News aggregator and efficient summarization system",
+          "snippet": "\u2026 the news that would be explored through more than one website will be placed only in a single location. Also, summarizing this aggregated content \u2026 results for summarization. This paper \u2026",
+          "link": "https://www.academia.edu/download/96289835/Paper_77-News_Aggregator_and_Efficient_Summarization_System.pdf",
+          "publicationInfo": "A Mohamed, M Ibrahim, M Yasser, M Ayman\u2026 - International Journal of \u2026, 2020 - academia.edu",
+          "year": 2020,
+          "citedBy": 11,
+          "pdfUrl": "https://www.academia.edu/download/96289835/Paper_77-News_Aggregator_and_Efficient_Summarization_System.pdf"
+        },
+        {
+          "title": "Cryptoblend: An AI-powered tool for aggregation and summarization of cryptocurrency news",
+          "snippet": "\u2026 adopt a more dynamic approach by presenting content that \u2026 cutting-edge natural language processing techniques, which \u2026 for the aggregation and summarization of news related to \u2026",
+          "link": "https://www.mdpi.com/2227-9709/10/1/5",
+          "publicationInfo": "A Pozzi, E Barbierato, D Toti - Informatics, 2023 - mdpi.com",
+          "year": 2023,
+          "citedBy": 11,
+          "pdfUrl": null
+        },
+        {
+          "title": "Automatic text summarization for government news reports based on multiple features",
+          "snippet": "\u2026 [20] in 2018, which has achieved higher accuracy than previous method models in several NLP task \u2026 reports for users and serving as a reference for knowledge aggregation and content \u2026",
+          "link": "https://link.springer.com/article/10.1007/s11227-023-05599-0",
+          "publicationInfo": "Y Yang, Y Tan, J Min, Z Huang - The Journal of Supercomputing, 2024 - Springer",
+          "year": 2024,
+          "citedBy": 16,
+          "pdfUrl": null
+        },
+        {
+          "title": "Bias-aware news analysis using matrix-based news aggregation",
+          "snippet": "\u2026 differences in the content or presentation of news. It is an \u2026 In summary, the vast majority of methods for the automated \u2026 of state-of-the-art NLP techniques is not sufficient to identify the \u2026",
+          "link": "https://link.springer.com/article/10.1007/s00799-018-0239-9",
+          "publicationInfo": "F Hamborg, N Meuschke, B Gipp - International Journal on Digital \u2026, 2020 - Springer",
+          "year": 2020,
+          "citedBy": 51,
+          "pdfUrl": "https://kops.uni-konstanz.de/bitstreams/a3b0e499-a764-493c-9e4c-bf469f53be3d/download"
+        },
+        {
+          "title": "Automated text summarization and topic detection on news aggregation system using BART and SVM",
+          "snippet": "\u2026 before summarizing the content of the news without \u2026 summarization, a news aggregation system that will be developed will only show the most important and relevant point of the news. \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9944521/",
+          "publicationInfo": "F Octavianus, A Wihardi, MK Ario\u2026 - \u2026 and Digital Innovation \u2026, 2022 - ieeexplore.ieee.org",
+          "year": 2022,
+          "citedBy": 4,
+          "pdfUrl": null
+        },
+        {
+          "title": "Advanced text summarization model incorporating nlp techniques and feature-based scoring",
+          "snippet": "\u2026 most informative content are selected for summarization. This \u2026 The BBC News Summary dataset, a large collection of news \u2026 aids effective automated text summarizing. These texts are \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/10838534/",
+          "publicationInfo": "EA Kadhim, MR Feizi-Derakhshi, HS Aghdasi - IEEE Access, 2025 - ieeexplore.ieee.org",
+          "year": 2025,
+          "citedBy": 4,
+          "pdfUrl": "https://ieeexplore.ieee.org/iel8/6287639/6514899/10838534.pdf"
+        },
+        {
+          "title": "News Timeline Summarization: Recent Methods",
+          "snippet": "\u2026 that utilizes Natural Language Processing techniques, \u2026 are aggregated to form a comprehensive timeline summary. \u2026 and evolving nature of news content, handling varying versions \u2026",
+          "link": "https://link.springer.com/chapter/10.1007/978-3-031-97141-9_25",
+          "publicationInfo": "V Yadav, JA Gulla, \u00d6 \u00d6zg\u00f6bek, L Zhang - International Conference on \u2026, 2025 - Springer",
+          "year": 2025,
+          "citedBy": null,
+          "pdfUrl": null
+        },
+        {
+          "title": "Improving abstractive text summarization with history aggregation",
+          "snippet": "\u2026 generation tasks in NLP(Natural Language Processing) such \u2026 [14] first trains contentselector to select and mask salient \u2026 our Chinese summarization dataset via crawling news website1 \u2026",
+          "link": "https://ieeexplore.ieee.org/abstract/document/9207502/",
+          "publicationInfo": "P Liao, C Zhang, X Chen, X Zhou - 2020 International Joint \u2026, 2020 - ieeexplore.ieee.org",
+          "year": 2020,
+          "citedBy": 13,
+          "pdfUrl": "https://arxiv.org/pdf/1912.11046"
+        },
+        {
+          "title": "Sumren: Summarizing reported speech about events in news",
+          "snippet": "\u2026 article content corresponds to reported statements. However, current news summarization \u2026 reported statements in news articles, which are then aggregated and summarized to convey \u2026",
+          "link": "https://ojs.aaai.org/index.php/AAAI/article/view/26506",
+          "publicationInfo": "RG Reddy, H Elfardy, HP Chan, K Small\u2026 - Proceedings of the AAAI \u2026, 2023 - ojs.aaai.org",
+          "year": 2023,
+          "citedBy": 6,
+          "pdfUrl": "https://ojs.aaai.org/index.php/AAAI/article/download/26506/26278"
+        },
+        {
+          "title": "News aggregation with diverse viewpoint identification using neural embeddings and semantic understanding models",
+          "snippet": "\u2026 associated with a news article. We define a hypothesis as a single summary sentence that \u2026 We define a premise as a single summary sentence that represents viewpoints shared by \u2026",
+          "link": "https://aclanthology.org/2020.argmining-1.7/",
+          "publicationInfo": "M Carlebach, R Cheruvu, B Walker\u2026 - Proceedings of the \u2026, 2020 - aclanthology.org",
+          "year": 2020,
+          "citedBy": 8,
+          "pdfUrl": "https://aclanthology.org/2020.argmining-1.7.pdf"
+        },
+        {
+          "title": "Multi-document news web page summarization using content extraction and lexical chain based key phrase extraction",
+          "snippet": "\u2026 begins very early by Luhn in 1958 and Edmundson in 1967 and becomes one of the traditional topics in the natural language processing research. Previously various papers about \u2026",
+          "link": "https://www.mdpi.com/2227-7390/11/8/1762",
+          "publicationInfo": "C Arya, M Diwakar, P Singh, V Singh, S Kadry, J Kim - Mathematics, 2023 - mdpi.com",
+          "year": 2023,
+          "citedBy": 6,
+          "pdfUrl": null
+        },
+        {
+          "title": "Deep learning based abstractive text summarization: approaches, datasets, evaluation measures, and challenges",
+          "snippet": "\u2026 for single-sentence summary approaches, while the Cable News Network (CNN)/\u2026 the summary, advanced machine learning techniques and extensive natural language processing (NLP\u2026",
+          "link": "https://onlinelibrary.wiley.com/doi/abs/10.1155/2020/9365340",
+          "publicationInfo": "D Suleiman, A Awajan - Mathematical problems in engineering, 2020 - Wiley Online Library",
+          "year": 2020,
+          "citedBy": 168,
+          "pdfUrl": "https://onlinelibrary.wiley.com/doi/pdf/10.1155/2020/9365340"
+        },
+        {
+          "title": "Personalized Summarization of Global News: Managing Bias with Large Language Models",
+          "snippet": "\u2026 These include personalized news aggregation platforms, educational tools \u2026 (NLP) tasks, especially in text generation and summarization. In the context of global news, where content \u2026",
+          "link": "https://jyx.jyu.fi/jyx/Record/jyx_123456789_102950",
+          "publicationInfo": "T Zahan - 2025 - jyx.jyu.fi",
+          "year": 2025,
+          "citedBy": null,
+          "pdfUrl": "https://jyx.jyu.fi/bitstreams/a305a78a-e657-49c7-8048-88326ec16b55/download"
+        },
+        {
+          "title": "Revolutionizing Text Summarization: A Breakthrough in Content Compression.",
+          "snippet": "\u2026 In contrast, the synergy between Natural Language Processing (NLP) and machine \u2026 contextually relevant summarization in various applications, from news aggregation to information \u2026",
+          "link": "https://search.ebscohost.com/login.aspx?direct=true&profile=ehost&scope=site&authtype=crawler&jrnl=09731318&AN=174922343&h=OTPeg7bfTi9CTrvVlMV9keQcT6LhMlt%2Bzb5ZrxHpapO2QglVYYt6%2FcxuSotjoEVkZmGxzk7erkcfNYxQufmjsQ%3D%3D&crl=c",
+          "publicationInfo": "N Mishra, F Khan, A Mishra - International Journal of \u2026, 2024 - search.ebscohost.com",
+          "year": 2024,
+          "citedBy": 3,
+          "pdfUrl": null
+        },
+        {
+          "title": "Embrace divergence for richer insights: A multi-document summarization benchmark and a case study on summarizing diverse information from news articles",
+          "snippet": "\u2026 Finally, we study how LLMs summarize multiple news articles by analyzing \u2026 , a news aggregator that collects news \u2026 as a measure to gauge how much content in an article\u2019s summary is \u2026",
+          "link": "https://arxiv.org/abs/2309.09369",
+          "publicationInfo": "KH Huang, P Laban, AR Fabbri, PK Choubey\u2026 - arXiv preprint arXiv \u2026, 2023 - arxiv.org",
+          "year": 2023,
+          "citedBy": 41,
+          "pdfUrl": "https://arxiv.org/pdf/2309.09369"
+        },
+        {
+          "title": "Automatic text summarization methods: A comprehensive review",
+          "snippet": "\u2026 information content of sentences that improves summarization quality. \u2026 [40] introduced Chinese news summarization, the fuzzy \u2026 important role in NLP to generate abstractive summary. In \u2026",
+          "link": "https://link.springer.com/article/10.1007/s42979-022-01446-w",
+          "publicationInfo": "G Sharma, D Sharma - SN Computer Science, 2022 - Springer",
+          "year": 2022,
+          "citedBy": 145,
+          "pdfUrl": "https://arxiv.org/pdf/2204.01849"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "_source_id": 5,
+  "sources": {
+    "Newsletter and Reporting Systems for AI Intelligence": {
+      "https://www.abstractapi.com/guides/other/best-stock-apis": {
+        "id": 1,
+        "publisher": "Abstract API",
+        "url": "https://www.abstractapi.com/guides/other/best-stock-apis",
+        "title": "Best Stock Market Data APIs of 2025",
+        "info": "Comprehensive comparison of 10 top stock market APIs including Alpha Vantage, Polygon.io, Intrinio, and others. Detailed pricing, features, real-time capabilities, and technical specifications."
+      },
+      "https://www.ksred.com/the-complete-guide-to-financial-data-apis-building-your-own-stock-market-data-pipeline-in-2025/": {
+        "id": 2,
+        "publisher": "KSRed",
+        "url": "https://www.ksred.com/the-complete-guide-to-financial-data-apis-building-your-own-stock-market-data-pipeline-in-2025/",
+        "title": "Complete Guide to Financial Data APIs 2025",
+        "info": "Expert analysis of financial APIs based on building financial systems. Covers real-time data, historical coverage, integration capabilities, and pricing for major providers like Polygon.io, Twelve Data, and Financial Modeling Prep."
+      },
+      "https://www.wprssaggregator.com/automated-content-curation/": {
+        "id": 3,
+        "publisher": "WP RSS Aggregator",
+        "url": "https://www.wprssaggregator.com/automated-content-curation/",
+        "title": "7 Unbeatable Tools for Easy Content Curation in 2025",
+        "info": "Detailed review of automated content curation tools including WP RSS Aggregator, Feedly, Flipboard, Quuu, HootSuite, Anders Pink, and BuzzSumo. Features, pricing, automation capabilities, and integration options."
+      },
+      "https://www.goinsight.ai/blog/ai-report-generators/": {
+        "id": 4,
+        "publisher": "GoInsight AI",
+        "url": "https://www.goinsight.ai/blog/ai-report-generators/",
+        "title": "Best AI Report Generators to Automate Reports in Clicks 2025",
+        "info": "Comprehensive analysis of 6 top AI report generators: Jasper AI, Beautiful.AI, Taskade, Storydoc, Jenni.AI, and TextaAI. Includes AI capabilities, integration options, collaboration features, and pricing."
+      },
+      "https://www.marketermilk.com/blog/best-newsletter-platforms": {
+        "id": 5,
+        "publisher": "Marketer Milk",
+        "url": "https://www.marketermilk.com/blog/best-newsletter-platforms",
+        "title": "10 Best Newsletter Platforms & Software in 2025",
+        "info": "Detailed comparison of newsletter platforms including beehiiv, MailerLite, Kit, Flodesk, Ghost, Substack, Mailmodo, AWeber, Campaign Monitor, and Mailchimp. Covers features, automation tools, API capabilities, and pricing models."
+      }
+    }
+  }
+}

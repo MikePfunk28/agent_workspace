@@ -1,0 +1,48 @@
+{
+  "todos": {
+    "Coordinator": {
+      "1": {
+        "id": "1",
+        "content": "Research and analyze existing AI aggregation platforms and tools",
+        "details": "1. Study existing AI news aggregators (AI News, Papers with Code, etc.) 2. Research project management tools for developers 3. Analyze knowledge management systems and RAG implementations 4. Investigate MCP server architectures and integrations 5. Research metrics tracking and analytics platforms 6. Study stock APIs (Yahoo Finance, Alpha Vantage) for tech/AI company tracking 7. Research startup databases (YC, Crunchbase) and job market APIs",
+        "status": "completed",
+        "priority": "high"
+      },
+      "2": {
+        "id": "2",
+        "content": "Research AI research databases and hackathon platforms",
+        "details": "1. Investigate arXiv, Papers with Code, Google Scholar APIs 2. Research hackathon platforms (DevPost, HackerEarth, etc.) 3. Study GitHub API for repository management 4. Research AI model APIs and MCP server implementations 5. Research chip industry news sources and semiconductor company APIs 6. Investigate AI startup tracking platforms and YC database access",
+        "status": "completed",
+        "priority": "high"
+      },
+      "3": {
+        "id": "3",
+        "content": "Design system architecture and data models",
+        "details": "1. Design database schema for projects, knowledge base, metrics, stock data, newsletters 2. Plan MCP server integration architecture 3. Design data aggregation and processing pipelines 4. Create simple, intuitive UI wireframes and component structure 5. Design newsletter generation and scheduling system 6. Plan machine learning pipeline for continuous improvement",
+        "status": "completed",
+        "priority": "high"
+      },
+      "4": {
+        "id": "4",
+        "content": "Obtain Supabase credentials for backend infrastructure",
+        "details": "Collect Supabase project URL and API keys needed for database, authentication, storage, and scheduled functions for newsletters",
+        "status": "completed",
+        "priority": "high"
+      },
+      "5": {
+        "id": "5",
+        "content": "Build the AI Hub full-stack application",
+        "details": "1. Create clean, intuitive dashboard with real-time AI news and research feeds 2. Implement project tracking and metrics visualization 3. Build knowledge base management with RAG capabilities 4. Develop repository integration and favorites system 5. Create research analysis and implementation recommendation engine 6. Implement MCP server integrations for external data sources 7. Build analytics and insights generation features 8. Create prompt engineering assistance tools 9. Add stock price tracking and trend analysis for AI/tech companies 10. Implement daily AI newsletter generation 11. Create weekly comprehensive reports with startup/job market insights 12. Add machine learning components for continuous improvement",
+        "status": "completed",
+        "priority": "high"
+      },
+      "6": {
+        "id": "6",
+        "content": "Implement advanced features and optimization",
+        "details": "1. Add machine learning for usage pattern analysis and personalized recommendations 2. Implement automated research-to-implementation pipeline 3. Create advanced visualization and infographics generation 4. Build intelligent newsletter personalization 5. Add predictive analytics for stock trends and market insights 6. Optimize performance and user experience",
+        "status": "pending",
+        "priority": "medium"
+      }
+    }
+  }
+}
