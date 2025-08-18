@@ -58,7 +58,7 @@ export function LandingPage() {
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <Brain className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-white">AI Hub</span>
+              <span className="text-xl font-bold text-white">MikePfunk</span>
             </div>
             <div className="flex items-center gap-4">
               {user ? (
@@ -180,7 +180,7 @@ export function LandingPage() {
             Ready to accelerate your AI journey?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Join thousands of researchers, entrepreneurs, and professionals using AI Hub to stay informed and ahead.
+            Join thousands of researchers, entrepreneurs, and professionals using MikePfunk to stay informed and ahead.
           </p>
           {!user && (
             <Link
@@ -201,10 +201,10 @@ export function LandingPage() {
             <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <Brain className="w-4 h-4 text-white" />
             </div>
-            <span className="text-lg font-bold text-white">AI Hub</span>
+            <span className="text-lg font-bold text-white">MikePfunk</span>
           </div>
           <p className="text-center text-gray-400">
-            © 2025 AI Hub. Built with care for the AI community.
+            © 2025 MikePfunk. Built with care for the AI community.
           </p>
         </div>
       </footer>

@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "yes | pnpm install && vite",
-    "build": "yes | pnpm install && rm -rf node_modules/.vite-temp && tsc -b && vite build",
-    "build:prod": "yes | pnpm install && rm -rf node_modules/.vite-temp && tsc -b && BUILD_MODE=prod vite build",
-    "lint": "yes | pnpm install && eslint .",
-    "preview": "yes | pnpm install && vite preview"
+    "dev": "vite",
+    "build": "rm -rf node_modules/.vite-temp && tsc -b && vite build",
+    "build:prod": "rm -rf node_modules/.vite-temp && tsc -b && BUILD_MODE=prod vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
