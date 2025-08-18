@@ -13,8 +13,10 @@ import { Login } from '@/pages/Login'
 import { Signup } from '@/pages/Signup'
 import './App.css'
 
+
 function App() {
   return (
+    
     <AuthProvider>
       <Router>
         <div className="min-h-screen bg-gray-950 text-white">
@@ -23,7 +25,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            
+
             {/* Protected Routes */}
             <Route path="/dashboard" element={
               <ProtectedRoute>
@@ -60,7 +62,7 @@ function App() {
                 <Settings />
               </ProtectedRoute>
             } />
-            
+
             {/* Catch all route */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

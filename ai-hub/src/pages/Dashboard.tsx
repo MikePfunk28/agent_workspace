@@ -3,12 +3,13 @@ import { Layout } from '@/components/Layout'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
 import type { AIContent, StockData, Hackathon } from '@/lib/supabase'
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  BookOpen, 
-  Calendar, 
-  Trophy, 
+import Todos from '@/components/Todos'
+import {
+  TrendingUp,
+  TrendingDown,
+  BookOpen,
+  Calendar,
+  Trophy,
   Zap,
   RefreshCw,
   ExternalLink,
@@ -68,7 +69,7 @@ export function Dashboard() {
         supabase.functions.invoke('aggregate-ai-content'),
         supabase.functions.invoke('fetch-hackathons')
       ])
-      
+
       // Refresh dashboard data
       await fetchDashboardData()
     } catch (error) {
@@ -138,6 +139,11 @@ export function Dashboard() {
           </button>
         </div>
 
+        {/* Supabase Connection Test */}
+        <div className="mb-8">
+          <Todos />
+        </div>
+
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
@@ -189,7 +195,7 @@ export function Dashboard() {
                 <h2 className="text-xl font-bold text-white">Latest AI Research & News</h2>
                 <Calendar className="w-5 h-5 text-gray-400" />
               </div>
-              
+
               <div className="space-y-4">
                 {aiContent.slice(0, 6).map((content) => (
                   <div key={content.id} className="border-b border-gray-800 last:border-b-0 pb-4 last:pb-0">
@@ -200,8 +206,8 @@ export function Dashboard() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className={`text-xs px-2 py-1 rounded-full ${
-                            content.content_type === 'paper' 
-                              ? 'bg-blue-900/50 text-blue-300' 
+                            content.content_type === 'paper'
+                              ? 'bg-blue-900/50 text-blue-300'
                               : 'bg-green-900/50 text-green-300'
                           }`}>
                             {content.content_type === 'paper' ? 'Research' : 'News'}
@@ -244,7 +250,7 @@ export function Dashboard() {
                 <h2 className="text-xl font-bold text-white">AI/Tech Stocks</h2>
                 <TrendingUp className="w-5 h-5 text-gray-400" />
               </div>
-              
+
               <div className="space-y-3">
                 {latestStocks.map((stock) => (
                   <div key={stock.id} className="flex items-center justify-between">
@@ -281,7 +287,7 @@ export function Dashboard() {
                 <h2 className="text-xl font-bold text-white">Upcoming Hackathons</h2>
                 <Trophy className="w-5 h-5 text-gray-400" />
               </div>
-              
+
               <div className="space-y-4">
                 {hackathons.slice(0, 3).map((hackathon) => (
                   <div key={hackathon.id} className="border-b border-gray-800 last:border-b-0 pb-4 last:pb-0">
