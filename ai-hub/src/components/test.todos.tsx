@@ -1,6 +1,5 @@
-// ...existing code...
 import { useState, useEffect } from 'react'
-import supabase from '../utils/supabase'
+import { supabase } from '../lib/supabase'
 
 type Todo = { id: string; text: string; completed?: boolean }
 
@@ -38,4 +37,3 @@ export default function Todos() {
         </ul>
     )
 }
-// ...existing code...

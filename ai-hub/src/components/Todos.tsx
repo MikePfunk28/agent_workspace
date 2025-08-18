@@ -4,7 +4,6 @@ import supabase from '../utils/supabase'
 interface Todo {
     id: string
     text: string
-    completed?: boolean
 }
 
 export default function Todos() {
