@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Layout } from '@/components/Layout'
+import { useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
 import type { AIContent } from '@/lib/supabase'
 import { 
@@ -12,7 +13,11 @@ import {
   Calendar,
   User,
   Tag,
-  TrendingUp
+  TrendingUp,
+  Eye,
+  EyeOff,
+  Brain,
+  Check
 } from 'lucide-react'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
@@ -20,6 +25,7 @@ type ContentFilter = 'all' | 'paper' | 'news' | 'blog' | 'tutorial'
 type SortOption = 'latest' | 'relevance' | 'alphabetical'
 
 export function Research() {
+  const { user } = useAuth()
   const [loading, setLoading] = useState(true)
   const [content, setContent] = useState<AIContent[]>([])
   const [filteredContent, setFilteredContent] = useState<AIContent[]>([])
@@ -28,6 +34,8 @@ export function Research() {
   const [sortBy, setSortBy] = useState<SortOption>('latest')
   const [sources, setSources] = useState<string[]>([])
   const [selectedSources, setSelectedSources] = useState<string[]>([])
+  const [explanations, setExplanations] = useState<Record<string, string>>({})
+  const [loadingExplanations, setLoadingExplanations] = useState<Record<string, boolean>>({})
 
   const filters = [
     { id: 'all', label: 'All Content', icon: TrendingUp },
@@ -150,6 +158,49 @@ export function Research() {
     )
   }
 
+  const toggleReadStatus = async (contentId: string, currentStatus: boolean) => {
+    try {
+      const { error } = await supabase
+        .from('ai_content')
+        .update({ is_read: !currentStatus })
+        .eq('id', contentId)
+
+      if (error) throw error
+
+      // Update local state
+      setContent(prev => prev.map(item => 
+        item.id === contentId ? { ...item, is_read: !currentStatus } : item
+      ))
+    } catch (error) {
+      console.error('Error updating read status:', error)
+    }
+  }
+
+  const explainPaper = async (contentId: string, title: string, contentText: string | undefined) => {
+    if (!user) return
+    
+    // Set loading state for this paper
+    setLoadingExplanations(prev => ({ ...prev, [contentId]: true }))
+    
+    try {
+      // For now, we'll use a simple summarization approach
+      // In a real implementation, this would connect to an AI model
+      const prompt = `Please explain the following research paper in simple terms:\n\nTitle: ${title}\n\nContent: ${contentText?.substring(0, 1000) || 'No content available'}`
+      
+      // Simulate AI processing
+      const explanation = `This is a simulated explanation for the paper titled "${title}". In a real implementation, this would connect to an AI model to provide a detailed explanation of the paper's content. The paper discusses important concepts in the field of AI research.`
+      
+      // Set the explanation in state
+      setExplanations(prev => ({ ...prev, [contentId]: explanation }))
+    } catch (error) {
+      console.error('Error explaining paper:', error)
+      setExplanations(prev => ({ ...prev, [contentId]: 'Failed to generate explanation. Please try again.' }))
+    } finally {
+      // Remove loading state
+      setLoadingExplanations(prev => ({ ...prev, [contentId]: false }))
+    }
+  }
+
   if (loading) {
     return (
       <Layout>
@@ -257,6 +308,9 @@ export function Research() {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredContent.map((item) => {
             const Icon = getContentTypeIcon(item.content_type)
+            const hasExplanation = explanations[item.id]
+            const isLoadingExplanation = loadingExplanations[item.id]
+            
             return (
               <div
                 key={item.id}
@@ -270,9 +324,18 @@ export function Research() {
                       {item.content_type}
                     </span>
                   </div>
-                  <button className="text-gray-400 hover:text-yellow-400 transition-colors">
-                    <Star className="w-4 h-4" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => toggleReadStatus(item.id, item.is_read)}
+                      className={`text-gray-400 hover:text-green-400 transition-colors ${item.is_read ? 'text-green-400' : ''}`}
+                      title={item.is_read ? "Mark as unread" : "Mark as read"}
+                    >
+                      {item.is_read ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                    <button className="text-gray-400 hover:text-yellow-400 transition-colors">
+                      <Star className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
 
                 {/* Title */}
@@ -296,6 +359,17 @@ export function Research() {
                   </div>
                 )}
 
+                {/* Explanation */}
+                {hasExplanation && (
+                  <div className="mb-4 p-3 bg-gray-800 rounded-lg">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Brain className="w-4 h-4 text-blue-400" />
+                      <span className="text-xs font-medium text-blue-300">AI Explanation</span>
+                    </div>
+                    <p className="text-xs text-gray-300">{explanations[item.id]}</p>
+                  </div>
+                )}
+
                 {/* Footer */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs text-gray-400">
@@ -306,17 +380,42 @@ export function Research() {
                     <span>{formatDate(item.published_at || item.created_at)}</span>
                   </div>
                   
-                  {item.url && (
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => explainPaper(item.id, item.title, item.content)}
+                      disabled={isLoadingExplanation}
+                      className="flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors disabled:opacity-50"
                     >
-                      Read
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  )}
+                      {isLoadingExplanation ? (
+                        <>
+                          <LoadingSpinner size="sm" />
+                          Explaining...
+                        </>
+                      ) : hasExplanation ? (
+                        <>
+                          <Check className="w-3 h-3" />
+                          Explained
+                        </>
+                      ) : (
+                        <>
+                          <Brain className="w-3 h-3" />
+                          Explain
+                        </>
+                      )}
+                    </button>
+                    
+                    {item.url && (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
+                      >
+                        Read
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             )
