@@ -1,0 +1,39 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+pip-wheel-metadata/
+build/
+dist/
+.env
+.env.local
+
+# Node / Vite
+node_modules/
+.vite/
+.vite/deps/
+
+# Editor / OS
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+Thumbs.db
+desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pytest_cache/
+coverage/
+
+# Claude Flow and AI coordination systems
+.claude-flow/
+.hive-mind/
+.swarm/
