@@ -9,6 +9,8 @@ import { Knowledge } from '@/pages/Knowledge'
 import { Analytics } from '@/pages/Analytics'
 import { Settings } from '@/pages/Settings'
 import { Newsletter } from '@/pages/Newsletter'
+import { Hackathons } from '@/pages/Hackathons'
+import { PromptLibrary } from '@/pages/PromptLibrary'
 import { Login } from '@/pages/Login'
 import { Signup } from '@/pages/Signup'
 import './App.css'
@@ -55,6 +57,16 @@ function App() {
             <Route path="/newsletter" element={
               <ProtectedRoute>
                 <Newsletter />
+              </ProtectedRoute>
+            } />
+            <Route path="/hackathons" element={
+              <ProtectedRoute>
+                <Hackathons />
+              </ProtectedRoute>
+            } />
+            <Route path="/prompts" element={
+              <ProtectedRoute>
+                <PromptLibrary />
               </ProtectedRoute>
             } />
             <Route path="/settings" element={

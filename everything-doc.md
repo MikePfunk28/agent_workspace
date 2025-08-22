@@ -30,6 +30,15 @@ but also do those, starting with hackathon after we implement the basic function
 │    tell which AI tool or model worked the best for you.  Again this is AFTER you implement every intuitive and basic feature and such, then move to the hackathon and those 3 and then    │
 │    anything I mentioned here.  Again continue where you left off
 
-also I thought having a feature to explain the research papers for you or summarize them.  Again accuracy needs to be important here.  So maybe we          │
-│   copy paragraph by paragraph and get answers each paragraph and then put it together for the model, then we can mark them read.  Now I added a file at the root which is              │
+also I thought having a feature to explain the research papers for you or summarize them.  Again accuracy needs to be important here.  So maybe we copy paragraph by paragraph and get answers each paragraph and then put it together for the model, then we can mark them read.  Now I added a file at the root which is              │
 │   everything I have said, everything-doc.md,
+
+## Supabase PAT for MCP or whatever
+AI-Hub
+
+sbp_c8c13f054577426e5a5fba06abe5c3bbd7863c6d
+sbp_c8c13f054577426e5a5fba06abe5c3bbd7863c6d
+
+I did not run the sql for vector creation yet.  This is an agent research hub where you can do everything we have added with biomedical agent, human gene, or many agents, that you can build, string together or use the predefined workflows defined as hugging face pipelines using chatml for templates with a system prompt and an assistant, and other configurations already done, and will use a local model inside the app using koboldcpp or llama.cpp to run it inside, then connect to larger for more complex tasks.  Also the ability to use the agents and workflows anywhere, on any platform, with any model, so if we need to have an integration or wrapper layer do so.  It has all the features currently install, with special workflows designed like the cytosolve algorithm, using RAG to get the data.  The ability to get data from anywhere and run operations on it, we can use this paper and define protocols for multiple agent async on the same project without causing issues because of the comm protocol, and we should use the mcp-agent and mcp-inspector to do so, even the gmail mcp.  Break things down into subtasks until you have a confidence level above 95% on implementing it.  I would also love to be able to upload a paper, and have a Classifier agent that will classify the prompt, paper, video, text, whatever, and then a orchestrator agent that assigns you to the best agent for the job.
+
+well we would need to use https://arxiv.org/html/2505.02279v1 this paper and maybe these protocols for agent communication and to communicate with agents running at the same time or even agents running elsewhere, models.
