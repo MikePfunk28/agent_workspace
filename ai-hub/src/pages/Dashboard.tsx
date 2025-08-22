@@ -16,6 +16,9 @@ import {
   Star
 } from 'lucide-react'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
+import { HackathonWidget } from '@/components/HackathonWidget'
+import { FavoriteHackathonsWidget } from '@/components/FavoriteHackathonsWidget'
+import { HackathonReminderSystem } from '@/components/HackathonReminderSystem'
 
 export function Dashboard() {
   const { user } = useAuth()
@@ -187,9 +190,9 @@ export function Dashboard() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* AI News Feed */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-8">
             <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white">Latest AI Research & News</h2>
@@ -243,7 +246,7 @@ export function Dashboard() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="lg:col-span-4 space-y-6">
             {/* Stock Tracker */}
             <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
@@ -281,54 +284,18 @@ export function Dashboard() {
               </div>
             </div>
 
-            {/* Upcoming Hackathons */}
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-white">Upcoming Hackathons</h2>
-                <Trophy className="w-5 h-5 text-gray-400" />
-              </div>
-
-              <div className="space-y-4">
-                {hackathons.slice(0, 3).map((hackathon) => (
-                  <div key={hackathon.id} className="border-b border-gray-800 last:border-b-0 pb-4 last:pb-0">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 shrink-0" />
-                      <div className="flex-1">
-                        <h3 className="text-white font-medium mb-1 line-clamp-2">
-                          {hackathon.name}
-                        </h3>
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-xs px-2 py-1 bg-yellow-900/50 text-yellow-300 rounded-full">
-                            {hackathon.platform}
-                          </span>
-                          {hackathon.prize_amount && (
-                            <span className="text-xs text-green-400">
-                              ${hackathon.prize_amount.toLocaleString()}
-                            </span>
-                          )}
-                        </div>
-                        <div className="text-xs text-gray-400">
-                          {hackathon.start_date && formatDate(hackathon.start_date)}
-                          {hackathon.is_virtual && ' • Virtual'}
-                        </div>
-                        {hackathon.url && (
-                          <a
-                            href={hackathon.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors mt-2"
-                          >
-                            Learn more
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Enhanced Hackathons Widget */}
+            <HackathonWidget 
+              limit={3}
+              title="Upcoming Hackathons"
+            />
           </div>
+        </div>
+
+        {/* Additional Hackathon Widgets Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+          <FavoriteHackathonsWidget limit={3} />
+          <HackathonReminderSystem />
         </div>
       </div>
     </Layout>

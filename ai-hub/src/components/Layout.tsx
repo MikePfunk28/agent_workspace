@@ -11,7 +11,8 @@ import {
   Mail, 
   LogOut,
   Brain,
-  User
+  User,
+  Trophy
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -20,6 +21,8 @@ const navigation = [
   { name: 'Research Hub', href: '/research', icon: Search },
   { name: 'Projects', href: '/projects', icon: FolderOpen },
   { name: 'Knowledge Base', href: '/knowledge', icon: BookOpen },
+  { name: 'Prompts', href: '/prompts', icon: Brain },
+  { name: 'Hackathons', href: '/hackathons', icon: Trophy },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Newsletter', href: '/newsletter', icon: Mail },
   { name: 'Settings', href: '/settings', icon: Settings },

@@ -22,3 +22,98 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database and migration files (temporary/generated)
+*.db
+*.sqlite
+*.sqlite3
+SUPABASE_MIGRATION_TO_RUN.sql
+check_extensions.sql
+move_vector_extension.sql
+vector_extension_migration_LINTED.sql
+*_LINTED.sql
+
+# Supabase temporary files and generated migrations
+supabase/.temp/
+.supabase/
+supabase/migrations/*_fix_security_and_performance_issues.sql
+supabase/migrations/*_move_extensions_to_extensions_schema.sql
+supabase/migrations/*_move_vector_to_extensions.sql
+supabase/migrations/*_enable_users_rls.sql
+supabase/migrations/*_prompt_templates_with_rls_fix.sql
+**/DEPLOYMENT_INSTRUCTIONS.md
+**/SECURITY_ENHANCEMENTS_MANUAL_STEPS.md
+**/TEST_SECURITY_FIXES.sql
+
+# Memory and cache directories
+memory/
+.cache/
+.temp/
+
+# Claude Flow and AI tools
+.claude-flow/
+.swarm/
+.claude/
+.hive-mind/
+
+# OS specific files
+Thumbs.db
+.DS_Store
+*~
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Python and other language files
+*.pyc
+__pycache__/
+.python-version
+*.py
+pyproject.toml
+uv.lock
+
+# Root level config and docs that shouldn't be tracked
+CLAUDE.md
+FEATURES.md
+LICENSE
+README.md
+package-lock.json
+hello.py
+
+# Roo and other tool directories  
+.roo/
+.roomodes
+
+# Memory and agent directories
+memory/
+memory/agents/
+memory/sessions/
+
+# MCP and config files
+mcp_agent.secrets.yaml
+logs/
+
+# Documentation files (generated) - now properly organized in docs/
+# Note: Files moved to docs/generated/ folder per CLAUDE.md guidelines
+HACKATHON_SYSTEM_VALIDATION.md
+VECTOR_DATABASE_IMPLEMENTATION.md
+IMPLEMENTATION_SUMMARY.md
+
+# Root level documentation should be moved to docs/
+/docs/generated/
+/docs/temp/
+
+# Additional generated files to ignore
+*.md.bak
+*.backup.md
+DEPLOYMENT_*.md
+MIGRATION_*.md

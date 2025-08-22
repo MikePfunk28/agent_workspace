@@ -1,0 +1,42 @@
+# Supabase Configuration for AI Hub Vector Search
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+
+[db]
+port = 54322
+major_version = 15
+
+[functions.semantic-search]
+verify_jwt = false
+
+[functions.generate-embeddings]
+verify_jwt = false
+
+[functions.batch-embed-content]
+verify_jwt = false
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[edge_runtime]
+enabled = true
+
+[analytics]
+enabled = false
