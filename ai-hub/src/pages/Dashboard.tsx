@@ -30,24 +30,7 @@ export function Dashboard() {
 
   const fetchDashboardData = async () => {
     try {
-      // Fetch latest AI content
-      const { data: contentData } = await supabase
-        .from('ai_content')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(8)
-
-      // Fetch latest stock data (most recent for each symbol)
-      const { data: stockResponse } = await supabase
-        .from('stock_data')
-        .select('*')
-        .order('timestamp', { ascending: false })
-        .limit(20)
-
-      // Fetch upcoming hackathons
-      const today = new Date().toISOString().split('T')[0]
-      const { data: hackathonData } = await supabase
-        .from('hackathons')
+      const { aiContent: contentData, stockData: stockResponse, hackathons: hackathonData } = await APIClient.getDashboardData()
         .select('*')
         .gte('start_date', today)
         .order('start_date', { ascending: true })

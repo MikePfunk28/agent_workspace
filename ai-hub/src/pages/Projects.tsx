@@ -14,7 +14,9 @@ import {
   Calendar,
   Tag
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
+import { NewProjectModal } from '@/components/NewProjectModal'
 
 export function Projects() {
   const { user } = useAuth()
@@ -40,6 +42,23 @@ export function Projects() {
       console.error('Error fetching projects:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  const toggleFavoriteProject = async (projectId: string, isFavorite: boolean) => {
+    try {
+      const { error } = await supabase
+        .from('projects')
+        .update({ is_favorite: !isFavorite })
+        .eq('id', projectId)
+
+      if (error) throw error
+
+      setProjects(prev =>
+        prev.map(p => (p.id === projectId ? { ...p, is_favorite: !isFavorite } : p))
+      )
+    } catch (error) {
+      console.error('Error toggling favorite:', error)
     }
   }
 
@@ -186,7 +205,10 @@ export function Projects() {
                     {project.status}
                   </span>
                   {project.is_favorite && (
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <Star
+                      className="w-4 h-4 text-yellow-400 fill-current cursor-pointer"
+                      onClick={() => toggleFavoriteProject(project.id, project.is_favorite)}
+                    />
                   )}
                 </div>
                 <button className="text-gray-400 hover:text-white transition-colors">
@@ -255,10 +277,10 @@ export function Projects() {
                       <Github className="w-4 h-4" />
                     </a>
                   )}
-                  <button className="flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
+                  <Link to={`/projects/${project.id}`} className="flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
                     View
                     <ExternalLink className="w-3 h-3" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -284,6 +306,14 @@ export function Projects() {
           </div>
         )}
       </div>
+      <NewProjectModal
+        isOpen={showNewProjectModal}
+        onClose={() => setShowNewProjectModal(false)}
+        onProjectCreated={() => {
+          fetchProjects();
+          setShowNewProjectModal(false);
+        }}
+      />
     </Layout>
   )
 }

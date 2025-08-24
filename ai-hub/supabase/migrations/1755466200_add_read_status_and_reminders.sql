@@ -3,14 +3,14 @@
 
 -- Add read status to knowledge_items table
 ALTER TABLE knowledge_items 
-ADD COLUMN is_read BOOLEAN DEFAULT FALSE;
+ADD COLUMN IF NOT EXISTS is_read BOOLEAN DEFAULT FALSE;
 
 -- Add read status to ai_content table
 ALTER TABLE ai_content 
-ADD COLUMN is_read BOOLEAN DEFAULT FALSE;
+ADD COLUMN IF NOT EXISTS is_read BOOLEAN DEFAULT FALSE;
 
 -- Create hackathon reminders table
-CREATE TABLE hackathon_reminders (
+CREATE TABLE IF NOT EXISTS hackathon_reminders (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id) ON DELETE CASCADE,
   hackathon_id UUID REFERENCES hackathons(id) ON DELETE CASCADE,
@@ -22,23 +22,26 @@ CREATE TABLE hackathon_reminders (
 );
 
 -- Create indexes for performance
-CREATE INDEX idx_knowledge_items_read_status ON knowledge_items(user_id, is_read);
-CREATE INDEX idx_ai_content_read_status ON ai_content(user_id, is_read);
-CREATE INDEX idx_hackathon_reminders_user_id ON hackathon_reminders(user_id);
-CREATE INDEX idx_hackathon_reminders_date ON hackathon_reminders(reminder_date);
+CREATE INDEX IF NOT EXISTS idx_knowledge_items_read_status ON knowledge_items(user_id, is_read);
+CREATE INDEX IF NOT EXISTS idx_hackathon_reminders_user_id ON hackathon_reminders(user_id);
+CREATE INDEX IF NOT EXISTS idx_hackathon_reminders_date ON hackathon_reminders(reminder_date);
 
 -- Enable Row Level Security (RLS)
 ALTER TABLE hackathon_reminders ENABLE ROW LEVEL SECURITY;
 
 -- RLS policies for hackathon reminders
+DROP POLICY IF EXISTS "Users can only access their own hackathon reminders" ON hackathon_reminders;
 CREATE POLICY "Users can only access their own hackathon reminders" ON hackathon_reminders
-  FOR ALL USING (auth.uid() = user_id);
+  FOR ALL USING ((select auth.uid()) = user_id);
 
+DROP POLICY IF EXISTS "Users can only modify their own hackathon reminders" ON hackathon_reminders;
 CREATE POLICY "Users can only modify their own hackathon reminders" ON hackathon_reminders
-  FOR INSERT WITH CHECK (auth.uid() = user_id);
+  FOR INSERT WITH CHECK ((select auth.uid()) = user_id);
 
+DROP POLICY IF EXISTS "Users can only update their own hackathon reminders" ON hackathon_reminders;
 CREATE POLICY "Users can only update their own hackathon reminders" ON hackathon_reminders
-  FOR UPDATE USING (auth.uid() = user_id);
+  FOR UPDATE USING ((select auth.uid()) = user_id);
 
+DROP POLICY IF EXISTS "Users can only delete their own hackathon reminders" ON hackathon_reminders;
 CREATE POLICY "Users can only delete their own hackathon reminders" ON hackathon_reminders
-  FOR DELETE USING (auth.uid() = user_id);
+  FOR DELETE USING ((select auth.uid()) = user_id);

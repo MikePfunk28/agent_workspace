@@ -11,6 +11,7 @@ import { Settings } from '@/pages/Settings'
 import { Newsletter } from '@/pages/Newsletter'
 import { Hackathons } from '@/pages/Hackathons'
 import { PromptLibrary } from '@/pages/PromptLibrary'
+import { ProjectView } from '@/pages/ProjectView'
 import { Login } from '@/pages/Login'
 import { Signup } from '@/pages/Signup'
 import './App.css'
@@ -42,6 +43,11 @@ function App() {
             <Route path="/projects" element={
               <ProtectedRoute>
                 <Projects />
+              </ProtectedRoute>
+            } />
+            <Route path="/projects/:id" element={
+              <ProtectedRoute>
+                <ProjectView />
               </ProtectedRoute>
             } />
             <Route path="/knowledge" element={
