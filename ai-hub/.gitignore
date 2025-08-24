@@ -98,7 +98,8 @@ memory/
 memory/agents/
 memory/sessions/
 
-# MCP and config files
+# MCP and config files that shouldn't be here
+mcp_agent.config.yam
 mcp_agent.secrets.yaml
 logs/
 

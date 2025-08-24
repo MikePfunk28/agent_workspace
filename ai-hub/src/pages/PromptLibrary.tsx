@@ -143,7 +143,7 @@ export function PromptLibrary() {
           .delete()
           .eq('user_id', user.id)
           .eq('prompt_template_id', promptId)
-        
+
         setFavorites(prev => {
           const next = new Set(prev)
           next.delete(promptId)
@@ -156,7 +156,7 @@ export function PromptLibrary() {
             user_id: user.id,
             prompt_template_id: promptId
           })
-        
+
         setFavorites(prev => new Set(prev).add(promptId))
       }
     } catch (error) {
@@ -169,11 +169,21 @@ export function PromptLibrary() {
 
     setExecuting(true)
     try {
-      const response = await fetch('/api/execute-prompt', {
+      // Use Supabase Edge Function URL
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://bwwpfikcrwhgahosahou.supabase.co'
+      const functionUrl = `${supabaseUrl}/functions/v1/execute-prompt`
+
+      const { data: session } = await supabase.auth.getSession()
+      if (!session?.session?.access_token) {
+        throw new Error('No authentication token available')
+      }
+
+      const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+          'Authorization': `Bearer ${session.session.access_token}`,
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY || ''
         },
         body: JSON.stringify({
           templateId: prompt.id,
@@ -182,16 +192,22 @@ export function PromptLibrary() {
         })
       })
 
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }))
+        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`)
+      }
+
       const result = await response.json()
-      if (response.ok) {
+      if (result.execution_id) {
         setExecutionResult(result)
         fetchRecentExecutions() // Refresh execution history
       } else {
-        throw new Error(result.error)
+        throw new Error(result.error || 'Failed to execute prompt')
       }
     } catch (error) {
       console.error('Error executing prompt:', error)
-      alert('Error executing prompt: ' + error.message)
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      alert(`Error executing prompt: ${errorMessage}`)
     } finally {
       setExecuting(false)
     }
@@ -247,11 +263,12 @@ export function PromptLibrary() {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            
+
             <select
               className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
+              aria-label="Filter prompts by category"
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -270,7 +287,7 @@ export function PromptLibrary() {
                 <Star className="w-4 h-4" />
                 <span>Favorites</span>
               </button>
-              
+
               <button
                 onClick={() => setShowMyPrompts(!showMyPrompts)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
@@ -295,7 +312,7 @@ export function PromptLibrary() {
               <BookOpen className="w-8 h-8 text-blue-500" />
             </div>
           </div>
-          
+
           <div className="bg-gray-800 rounded-lg p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -305,7 +322,7 @@ export function PromptLibrary() {
               <Star className="w-8 h-8 text-yellow-500" />
             </div>
           </div>
-          
+
           <div className="bg-gray-800 rounded-lg p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -315,7 +332,7 @@ export function PromptLibrary() {
               <Zap className="w-8 h-8 text-green-500" />
             </div>
           </div>
-          
+
           <div className="bg-gray-800 rounded-lg p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -340,8 +357,8 @@ export function PromptLibrary() {
                   onClick={() => toggleFavorite(prompt.id)}
                   className="text-gray-400 hover:text-yellow-500 transition-colors ml-2"
                 >
-                  {favorites.has(prompt.id) ? 
-                    <Star className="w-5 h-5 fill-current text-yellow-500" /> : 
+                  {favorites.has(prompt.id) ?
+                    <Star className="w-5 h-5 fill-current text-yellow-500" /> :
                     <StarOff className="w-5 h-5" />
                   }
                 </button>
@@ -391,10 +408,18 @@ export function PromptLibrary() {
                   <Play className="w-4 h-4" />
                   <span>Execute</span>
                 </button>
-                <button className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors">
+                <button
+                  className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors"
+                  aria-label="Copy prompt"
+                  title="Copy prompt"
+                >
                   <Copy className="w-4 h-4" />
                 </button>
-                <button className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors">
+                <button
+                  className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors"
+                  aria-label="Edit prompt"
+                  title="Edit prompt"
+                >
                   <Edit className="w-4 h-4" />
                 </button>
               </div>
@@ -426,12 +451,12 @@ export function PromptLibrary() {
 }
 
 // Prompt Execution Modal Component
-function PromptExecutionModal({ 
-  prompt, 
-  onClose, 
-  onExecute, 
-  executing, 
-  result 
+function PromptExecutionModal({
+  prompt,
+  onClose,
+  onExecute,
+  executing,
+  result
 }: {
   prompt: PromptTemplate
   onClose: () => void
@@ -482,6 +507,7 @@ function PromptExecutionModal({
                         className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         value={variables[variable.name] || ''}
                         onChange={(e) => setVariables(prev => ({ ...prev, [variable.name]: e.target.value }))}
+                        aria-label={`Select value for ${variable.name}`}
                       >
                         <option value="">Select {variable.name}</option>
                         {variable.options?.map((option: string) => (
@@ -508,7 +534,7 @@ function PromptExecutionModal({
             <h3 className="text-lg font-medium text-white mb-4">Template Preview</h3>
             <div className="bg-gray-900 rounded-lg p-4">
               <pre className="text-gray-300 whitespace-pre-wrap text-sm">
-                {prompt.template.replace(/\{\{\s*(\w+)\s*\}\}/g, (match, key) => 
+                {prompt.template.replace(/\{\{\s*(\w+)\s*\}\}/g, (match, key) =>
                   variables[key] || `{{${key}}}`
                 )}
               </pre>

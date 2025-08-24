@@ -1,0 +1,332 @@
+-- Enable UUIDs for gen_random_uuid()
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+-- =======================
+-- Tables
+-- =======================
+CREATE TABLE IF NOT EXISTS ai_content (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  title text NOT NULL,
+  content text,
+  summary text,
+  url text,
+  source text NOT NULL,
+  content_type text CHECK (content_type IN ('news','paper','blog','tutorial')) DEFAULT 'news',
+  authors text[] DEFAULT ARRAY[]::text[],
+  published_at timestamptz,
+  relevance_score int DEFAULT 0,
+  created_at timestamptz DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS stock_data (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  symbol text NOT NULL,
+  company_name text,
+  price decimal(10,2) NOT NULL,
+  change_percent decimal(5,2) DEFAULT 0,
+  volume bigint,
+  market_cap bigint,
+  sector text DEFAULT 'Technology',
+  is_ai_related boolean DEFAULT true,
+  timestamp timestamptz DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
+  name text NOT NULL,
+  description text,
+  github_url text,
+  status text CHECK (status IN ('active','completed','paused')) DEFAULT 'active',
+  technologies text[] DEFAULT ARRAY[]::text[],
+  metrics jsonb DEFAULT '{}'::jsonb,
+  is_favorite boolean DEFAULT false,
+  progress int DEFAULT 0,
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS newsletters (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
+  type text CHECK (type IN ('daily','weekly')) DEFAULT 'weekly',
+  title text NOT NULL,
+  content text NOT NULL,
+  generated_at timestamptz DEFAULT now(),
+  sent_at timestamptz,
+  is_personalized boolean DEFAULT true
+);
+
+CREATE TABLE IF NOT EXISTS prompt_templates (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
+  name text NOT NULL,
+  description text,
+  template text NOT NULL,
+  variables jsonb DEFAULT '[]'::jsonb,
+  category text DEFAULT 'general',
+  tags text[] DEFAULT ARRAY[]::text[],
+  is_public boolean DEFAULT true,
+  usage_count int DEFAULT 0,
+  rating_avg decimal(4,2) DEFAULT 0.00,
+  rating_count int DEFAULT 0,
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS prompt_executions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
+  prompt_template_id uuid REFERENCES prompt_templates(id) ON DELETE SET NULL,
+  input_variables jsonb DEFAULT '{}'::jsonb,
+  final_prompt text NOT NULL,
+  ai_model text DEFAULT 'gpt-4',
+  response_data jsonb DEFAULT '{}'::jsonb,
+  execution_time int DEFAULT 0,
+  token_usage jsonb DEFAULT '{}'::jsonb,
+  status text DEFAULT 'completed',
+  error_message text,
+  created_at timestamptz DEFAULT now(),
+  completed_at timestamptz
+);
+
+CREATE TABLE IF NOT EXISTS prompt_favorites (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
+  prompt_template_id uuid REFERENCES prompt_templates(id) ON DELETE CASCADE,
+  created_at timestamptz DEFAULT now(),
+  UNIQUE(user_id, prompt_template_id)
+);
+
+-- =======================
+-- RLS
+-- =======================
+ALTER TABLE ai_content ENABLE ROW LEVEL SECURITY;
+ALTER TABLE stock_data ENABLE ROW LEVEL SECURITY;
+ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+ALTER TABLE newsletters ENABLE ROW LEVEL SECURITY;
+ALTER TABLE prompt_templates ENABLE ROW LEVEL SECURITY;
+ALTER TABLE prompt_executions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE prompt_favorites ENABLE ROW LEVEL SECURITY;
+
+-- Public read-only on content tables
+DO $$ BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies
+    WHERE schemaname = 'public' AND tablename = 'ai_content' AND policyname = 'Public can view ai_content'
+  ) THEN
+    CREATE POLICY "Public can view ai_content" ON ai_content FOR SELECT USING (true);
+  END IF;
+END $$;
+
+DO $$ BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies
+    WHERE schemaname = 'public' AND tablename = 'stock_data' AND policyname = 'Public can view stock_data'
+  ) THEN
+    CREATE POLICY "Public can view stock_data" ON stock_data FOR SELECT USING (true);
+  END IF;
+END $$;
+
+-- Projects Policy
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname = 'public' AND tablename = 'projects' AND policyname = 'Users own projects') THEN
+    CREATE POLICY "Users own projects"
+    ON projects
+    FOR ALL
+    USING ((SELECT auth.uid()) = user_id)
+    WITH CHECK ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+-- Newsletters Policy
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname = 'public' AND tablename = 'newsletters' AND policyname = 'Users own newsletters') THEN
+    CREATE POLICY "Users own newsletters"
+    ON newsletters
+    FOR ALL
+    USING ((SELECT auth.uid()) = user_id)
+    WITH CHECK ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+-- Prompt Templates Policies
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Public can view public prompts' AND tablename = 'prompt_templates') THEN
+    CREATE POLICY "Public can view public prompts"
+    ON prompt_templates
+    FOR SELECT
+    USING (is_public = true OR (SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users can create prompts' AND tablename = 'prompt_templates') THEN
+    CREATE POLICY "Users can create prompts"
+    ON prompt_templates
+    FOR INSERT
+    WITH CHECK ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+-- Replace legacy combined policy with separate UPDATE and DELETE policies
+DO $$ BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_policies
+    WHERE policyname = 'Owners can modify prompts' AND tablename = 'prompt_templates'
+  ) THEN
+    EXECUTE 'DROP POLICY "Owners can modify prompts" ON prompt_templates';
+  END IF;
+END $$;
+
+DO $$ BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies
+    WHERE policyname = 'Owners can update prompts' AND tablename = 'prompt_templates'
+  ) THEN
+    CREATE POLICY "Owners can update prompts"
+    ON prompt_templates
+    FOR UPDATE
+    USING ((SELECT auth.uid()) = user_id)
+    WITH CHECK ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+DO $$ BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies
+    WHERE policyname = 'Owners can delete prompts' AND tablename = 'prompt_templates'
+  ) THEN
+    CREATE POLICY "Owners can delete prompts"
+    ON prompt_templates
+    FOR DELETE
+    USING ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+-- Prompt Executions Policy
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own executions' AND tablename = 'prompt_executions') THEN
+    CREATE POLICY "Users own executions"
+    ON prompt_executions
+    FOR ALL
+    USING ((SELECT auth.uid()) = user_id)
+    WITH CHECK ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+-- Prompt Favorites Policy
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Users own favorites' AND tablename = 'prompt_favorites') THEN
+    CREATE POLICY "Users own favorites"
+    ON prompt_favorites
+    FOR ALL
+    USING ((SELECT auth.uid()) = user_id)
+    WITH CHECK ((SELECT auth.uid()) = user_id);
+  END IF;
+END $$;
+
+-- =======================
+-- Triggers: auto-update updated_at
+-- =======================
+CREATE OR REPLACE FUNCTION set_updated_at() RETURNS trigger AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_trigger WHERE tgname = 'trg_projects_updated_at') THEN
+    CREATE TRIGGER trg_projects_updated_at
+    BEFORE UPDATE ON projects
+    FOR EACH ROW EXECUTE FUNCTION set_updated_at();
+  END IF;
+
+  IF NOT EXISTS (SELECT 1 FROM pg_trigger WHERE tgname = 'trg_prompt_templates_updated_at') THEN
+    CREATE TRIGGER trg_prompt_templates_updated_at
+    BEFORE UPDATE ON prompt_templates
+    FOR EACH ROW EXECUTE FUNCTION set_updated_at();
+  END IF;
+END$$;
+
+-- =======================
+-- Enhanced Metadata Tracking
+-- =======================
+CREATE OR REPLACE FUNCTION set_updated_metadata()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = now();
+  NEW.updated_by = (SELECT auth.uid());
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+ALTER TABLE projects
+ADD COLUMN IF NOT EXISTS updated_by uuid REFERENCES auth.users(id);
+
+ALTER TABLE prompt_templates
+ADD COLUMN IF NOT EXISTS updated_by uuid REFERENCES auth.users(id);
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_trigger WHERE tgname = 'trg_projects_updated_metadata') THEN
+    CREATE TRIGGER trg_projects_updated_metadata
+    BEFORE UPDATE ON projects
+    FOR EACH ROW EXECUTE FUNCTION set_updated_metadata();
+  END IF;
+
+  IF NOT EXISTS (SELECT 1 FROM pg_trigger WHERE tgname = 'trg_prompt_templates_updated_metadata') THEN
+    CREATE TRIGGER trg_prompt_templates_updated_metadata
+    BEFORE UPDATE ON prompt_templates
+    FOR EACH ROW EXECUTE FUNCTION set_updated_metadata();
+  END IF;
+END$$;
+
+-- =======================
+-- Indexes
+-- =======================
+CREATE INDEX IF NOT EXISTS idx_ai_content_created_at ON ai_content(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_ai_content_type_pub ON ai_content(content_type, published_at DESC);
+CREATE INDEX IF NOT EXISTS idx_stock_data_symbol ON stock_data(symbol);
+CREATE INDEX IF NOT EXISTS idx_projects_user ON projects(user_id);
+CREATE INDEX IF NOT EXISTS idx_templates_public ON prompt_templates(is_public, user_id);
+CREATE INDEX IF NOT EXISTS idx_exec_user_template ON prompt_executions(user_id, prompt_template_id);
+CREATE INDEX IF NOT EXISTS idx_fav_user_template ON prompt_favorites(user_id, prompt_template_id);
+DROP INDEX IF EXISTS idx_ai_content_source;
+DROP INDEX IF EXISTS idx_ai_content_published_at;
+DROP INDEX IF EXISTS idx_stock_data_symbol_timestamp;
+
+CREATE INDEX IF NOT EXISTS idx_projects_user_updated
+ON projects(user_id, updated_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_prompt_templates_public
+ON prompt_templates(is_public, user_id);
+
+CREATE INDEX IF NOT EXISTS idx_prompt_executions_user_template
+ON prompt_executions(user_id, prompt_template_id, created_at DESC);
+
+-- =======================
+-- Seed data (FK-safe)
+-- =======================
+INSERT INTO ai_content (title, content, source, content_type) VALUES
+('Latest AI Developments','Recent advances in AI technology...','AI News','news'),
+('Machine Learning Tutorial','Learn ML fundamentals...','ML Blog','tutorial'),
+('Research Paper: GPT-5','Abstract of latest research...','arXiv','paper')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO stock_data (symbol, company_name, price, change_percent, sector) VALUES
+('NVDA','NVIDIA Corp',875.50,2.3,'AI Hardware'),
+('GOOGL','Alphabet (Google)',142.80,-0.5,'AI Software'),
+('MSFT','Microsoft',378.90,1.2,'AI Cloud')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO prompt_templates (user_id, name, description, template, category, tags)
+VALUES
+(NULL,'Code Review','Review code for best practices','Review this code: {{code}}','development', ARRAY['coding','review']),
+(NULL,'Research Summary','Summarize research papers','Summarize: {{paper}}','research', ARRAY['research','summary']),
+(NULL,'Meeting Notes','Convert meeting transcripts','Create notes from: {{transcript}}','productivity', ARRAY['meetings','notes'])
+ON CONFLICT DO NOTHING;
+
+SELECT 'ALL ESSENTIAL TABLES + TRIGGERS + INDEXES CREATED' AS status;
