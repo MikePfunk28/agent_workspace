@@ -22,7 +22,7 @@ export class SupabaseApiClient {
   private baseUrl: string
 
   private constructor() {
-    this.baseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://bwwpfikcrwhgahosahou.supabase.co'
+    this.baseUrl = import.meta.env.VITE_SUPABASE_URL
   }
 
   public static getInstance(): SupabaseApiClient {
@@ -49,6 +49,8 @@ export class SupabaseApiClient {
     if (!session?.session?.access_token) {
       throw new Error('Authentication required. Please log in again.')
     }
+
+    console.log('Access Token:', session.session.access_token); // ADDED FOR DEBUGGING
 
     const defaultHeaders = {
       'Content-Type': 'application/json',

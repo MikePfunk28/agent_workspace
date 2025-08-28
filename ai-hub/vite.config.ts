@@ -25,5 +25,39 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Radix UI components (largest portion)
+          'radix-ui': [
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-alert-dialog',
+            '@radix-ui/react-avatar',
+            '@radix-ui/react-checkbox',
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-popover',
+            '@radix-ui/react-select',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-toast',
+            '@radix-ui/react-tooltip'
+          ],
+          // Chart library
+          'charts': ['recharts'],
+          // Supabase
+          'supabase': ['@supabase/supabase-js'],
+          // Icons
+          'icons': ['lucide-react'],
+          // Router
+          'router': ['react-router-dom'],
+          // Forms
+          'forms': ['react-hook-form', '@hookform/resolvers', 'zod']
+        }
+      }
+    },
+    // Reduce chunk size warning limit
+    chunkSizeWarningLimit: 600
+  }
 })
 

@@ -180,6 +180,7 @@ CREATE TABLE IF NOT EXISTS prompt_templates (
     usage_count INTEGER DEFAULT 0,
     rating_avg DECIMAL(4,2) DEFAULT 0.00,
     rating_count INTEGER DEFAULT 0,
+    semantic_embedding extensions.vector(384),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -218,11 +219,9 @@ CREATE INDEX IF NOT EXISTS idx_prompt_chains_config ON prompt_chains USING GIN(c
 CREATE INDEX IF NOT EXISTS idx_prompt_chains_success ON prompt_chains(success_rate DESC);
 CREATE INDEX IF NOT EXISTS idx_user_analytics_event_type ON user_analytics(event_type);
 
--- Vector similarity search indexes
+-- Vector similarity search indexes (only for existing columns)
 CREATE INDEX IF NOT EXISTS knowledge_items_embedding_idx ON knowledge_items USING ivfflat (embedding extensions.vector_cosine_ops);
 CREATE INDEX IF NOT EXISTS ai_content_embedding_idx ON ai_content USING ivfflat (embedding extensions.vector_cosine_ops);
-CREATE INDEX IF NOT EXISTS idx_prompt_templates_embedding ON prompt_templates USING ivfflat (semantic_embedding extensions.vector_cosine_ops);
-CREATE INDEX IF NOT EXISTS idx_ai_content_embedding ON ai_content USING ivfflat (semantic_embedding extensions.vector_cosine_ops);
 
 -- Enable Row Level Security (RLS)
 ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
@@ -326,41 +325,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trigger_update_prompt_usage_stats ON prompt_executions;
-CREATE TRIGGER trigger_update_prompt_usage_stats
-    AFTER INSERT ON prompt_executions
-    FOR EACH ROW
-    EXECUTE FUNCTION update_prompt_usage_stats();
-
-CREATE OR REPLACE FUNCTION update_chain_success_rate()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF NEW.status = 'completed' AND OLD.status != 'completed' THEN
-        UPDATE prompt_chains
-        SET success_rate = (
-            SELECT ROUND(
-                (COUNT(*) FILTER (WHERE status = 'completed')::DECIMAL / COUNT(*)) * 100, 2
-            )
-            FROM prompt_executions
-            WHERE prompt_chain_id = NEW.prompt_chain_id
-        ),
-        avg_execution_time = (
-            SELECT ROUND(AVG(execution_time))
-            FROM prompt_executions
-            WHERE prompt_chain_id = NEW.prompt_chain_id AND status = 'completed'
-        )
-        WHERE id = NEW.prompt_chain_id;
-    END IF;
-
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-DROP TRIGGER IF EXISTS trigger_update_chain_success_rate ON prompt_executions;
-CREATE TRIGGER trigger_update_chain_success_rate
-    AFTER UPDATE ON prompt_executions
-    FOR EACH ROW
-    EXECUTE FUNCTION update_chain_success_rate();
+-- Triggers for prompt_executions are defined in 20250820003214_create_prompt_management_system.sql
 
 CREATE OR REPLACE FUNCTION validate_password(password text)
 RETURNS boolean
