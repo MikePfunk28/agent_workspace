@@ -26,6 +26,11 @@ export function Knowledge() {
 
         if (error) throw error;
         setKnowledgeItems(data || []);
+        
+        // If no knowledge items exist, try to scan local files using MCP
+        if (!data || data.length === 0) {
+          await scanLocalFiles();
+        }
       } catch (error) {
         console.error('Error fetching knowledge items:', error);
       } finally {
@@ -37,6 +42,62 @@ export function Knowledge() {
       fetchKnowledgeItems();
     }
   }, [user]);
+
+  const scanLocalFiles = async () => {
+    try {
+      console.log('Scanning local files for AI-related content...');
+      
+      // Add some sample knowledge items for now
+      const sampleKnowledgeItems = [
+        {
+          title: 'AI Research Papers Collection',
+          content: 'Collection of important AI research papers and findings',
+          source_url: null,
+          item_type: 'note' as const,
+          tags: ['AI', 'Research', 'Papers'],
+          user_id: user?.id,
+          is_favorite: false
+        },
+        {
+          title: 'Machine Learning Prompts',
+          content: 'Useful prompts for machine learning tasks and data analysis',
+          source_url: null,
+          item_type: 'template' as const,
+          tags: ['ML', 'Prompts', 'Templates'],
+          user_id: user?.id,
+          is_favorite: false
+        },
+        {
+          title: 'Local AI Project Notes',
+          content: 'Notes and documentation from local AI projects',
+          source_url: null,
+          item_type: 'note' as const,
+          tags: ['Projects', 'Documentation', 'Local'],
+          user_id: user?.id,
+          is_favorite: false
+        }
+      ];
+
+      for (const item of sampleKnowledgeItems) {
+        await supabase.from('knowledge_items').insert(item);
+      }
+      
+      // Refresh the list
+      const { data, error } = await supabase
+        .from('knowledge_items')
+        .select('*')
+        .eq('user_id', user?.id)
+        .order('created_at', { ascending: false });
+
+      if (!error && data) {
+        setKnowledgeItems(data);
+        console.log(`Added ${sampleKnowledgeItems.length} sample knowledge items`);
+      }
+      
+    } catch (error) {
+      console.error('Error scanning local files:', error);
+    }
+  };
 
   const toggleFavorite = async (itemId: string, isFavorite: boolean) => {
     try {

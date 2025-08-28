@@ -18,6 +18,7 @@ import {
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { HackathonWidget } from '@/components/HackathonWidget'
 import { FavoriteHackathonsWidget } from '@/components/FavoriteHackathonsWidget'
+import { apiClient } from '@/lib/api-client'
 import { HackathonReminderSystem } from '@/components/HackathonReminderSystem'
 
 export function Dashboard() {
@@ -30,21 +31,25 @@ export function Dashboard() {
 
   const fetchDashboardData = async () => {
     try {
-      const { aiContent: contentData, stockData: stockResponse, hackathons: hackathonData } = await APIClient.getDashboardData()
-        .select('*')
-        .gte('start_date', today)
-        .order('start_date', { ascending: true })
-        .limit(5)
+      const [stockResponse, contentData, hackathonData] = await Promise.all([
+        supabase.functions.invoke('fetch-stock-data'),
+        supabase.functions.invoke('aggregate-ai-content'),
+        supabase.functions.invoke('fetch-hackathons')
+      ]);
 
-      setAiContent(contentData || [])
-      setStockData(stockResponse || [])
-      setHackathons(hackathonData || [])
+      if (stockResponse.error) throw stockResponse.error;
+      if (contentData.error) throw contentData.error;
+      if (hackathonData.error) throw hackathonData.error;
+
+      setStockData(stockResponse.data || []);
+      setAiContent(contentData.data || []);
+      setHackathons(hackathonData.data || []);
     } catch (error) {
-      console.error('Error fetching dashboard data:', error)
+      console.error('Error fetching dashboard data:', error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const refreshData = async () => {
     setRefreshing(true)

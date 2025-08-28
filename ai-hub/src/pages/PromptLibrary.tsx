@@ -20,7 +20,8 @@ import {
   Zap,
   Brain,
   Settings,
-  Download
+  Download,
+  X
 } from 'lucide-react'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
@@ -62,6 +63,8 @@ export function PromptLibrary() {
   const [selectedPrompt, setSelectedPrompt] = useState<PromptTemplate | null>(null)
   const [executing, setExecuting] = useState(false)
   const [executionResult, setExecutionResult] = useState<any>(null)
+  const [showCreateModal, setShowCreateModal] = useState(false)
+  const [editingPrompt, setEditingPrompt] = useState<PromptTemplate | null>(null)
 
   const categories = ['all', 'research', 'development', 'productivity', 'creative', 'analysis', 'education']
 
@@ -170,7 +173,7 @@ export function PromptLibrary() {
     setExecuting(true)
     try {
       // Use Supabase Edge Function URL
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://bwwpfikcrwhgahosahou.supabase.co'
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
       const functionUrl = `${supabaseUrl}/functions/v1/execute-prompt`
 
       const { data: session } = await supabase.auth.getSession()
@@ -213,6 +216,16 @@ export function PromptLibrary() {
     }
   }
 
+  const copyPromptToClipboard = async (prompt: PromptTemplate) => {
+    try {
+      await navigator.clipboard.writeText(prompt.template)
+      // You could add a toast notification here
+      console.log('Prompt copied to clipboard')
+    } catch (error) {
+      console.error('Failed to copy prompt:', error)
+    }
+  }
+
   const filteredPrompts = prompts.filter(prompt => {
     if (showFavoritesOnly && !favorites.has(prompt.id)) return false
     if (searchTerm && !prompt.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -244,7 +257,10 @@ export function PromptLibrary() {
               Discover, create, and execute AI prompts with advanced reasoning capabilities
             </p>
           </div>
-          <button className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+          <button 
+            onClick={() => setShowCreateModal(true)}
+            className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+          >
             <Plus className="w-4 h-4" />
             <span>Create Prompt</span>
           </button>
@@ -409,19 +425,23 @@ export function PromptLibrary() {
                   <span>Execute</span>
                 </button>
                 <button
+                  onClick={() => copyPromptToClipboard(prompt)}
                   className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors"
                   aria-label="Copy prompt"
                   title="Copy prompt"
                 >
                   <Copy className="w-4 h-4" />
                 </button>
-                <button
-                  className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors"
-                  aria-label="Edit prompt"
-                  title="Edit prompt"
-                >
-                  <Edit className="w-4 h-4" />
-                </button>
+                {user && prompt.user_id === user.id && (
+                  <button
+                    onClick={() => setEditingPrompt(prompt)}
+                    className="p-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors"
+                    aria-label="Edit prompt"
+                    title="Edit prompt"
+                  >
+                    <Edit className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             </div>
           ))}
@@ -444,6 +464,29 @@ export function PromptLibrary() {
           onExecute={executePrompt}
           executing={executing}
           result={executionResult}
+        />
+      )}
+
+      {/* Create Prompt Modal */}
+      {showCreateModal && (
+        <CreatePromptModal
+          onClose={() => setShowCreateModal(false)}
+          onSave={(newPrompt) => {
+            setPrompts(prev => [newPrompt, ...prev])
+            setShowCreateModal(false)
+          }}
+        />
+      )}
+
+      {/* Edit Prompt Modal */}
+      {editingPrompt && (
+        <EditPromptModal
+          prompt={editingPrompt}
+          onClose={() => setEditingPrompt(null)}
+          onSave={(updatedPrompt) => {
+            setPrompts(prev => prev.map(p => p.id === updatedPrompt.id ? updatedPrompt : p))
+            setEditingPrompt(null)
+          }}
         />
       )}
     </Layout>
@@ -586,6 +629,348 @@ function PromptExecutionModal({
                   <Play className="w-4 h-4" />
                   <span>Execute Prompt</span>
                 </>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Create Prompt Modal Component
+function CreatePromptModal({
+  onClose,
+  onSave
+}: {
+  onClose: () => void
+  onSave: (prompt: PromptTemplate) => void
+}) {
+  const { user } = useAuth()
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    template: '',
+    category: 'development',
+    tags: '',
+    is_public: false
+  })
+  const [saving, setSaving] = useState(false)
+
+  const handleSave = async () => {
+    if (!user) return
+
+    setSaving(true)
+    try {
+      const { data, error } = await supabase
+        .from('prompt_templates')
+        .insert({
+          user_id: user.id,
+          name: formData.name,
+          description: formData.description,
+          template: formData.template,
+          category: formData.category,
+          tags: formData.tags.split(',').map(t => t.trim()).filter(t => t),
+          is_public: formData.is_public,
+          variables: []
+        })
+        .select()
+        .single()
+
+      if (error) throw error
+
+      onSave(data)
+    } catch (error) {
+      console.error('Error creating prompt:', error)
+      alert('Failed to create prompt')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-gray-700">
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold text-white">Create New Prompt</h2>
+            <button onClick={onClose} className="text-gray-400 hover:text-white">
+              ×
+            </button>
+          </div>
+        </div>
+
+        <div className="p-6 space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              value={formData.name}
+              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+              placeholder="Enter prompt name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Description</label>
+            <textarea
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              rows={3}
+              value={formData.description}
+              onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+              placeholder="Describe what this prompt does"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Template</label>
+            <textarea
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono"
+              rows={6}
+              value={formData.template}
+              onChange={(e) => setFormData(prev => ({ ...prev, template: e.target.value }))}
+              placeholder="Enter your prompt template here. Use {{variable}} for variables."
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Category</label>
+              <select
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                value={formData.category}
+                onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
+              >
+                <option value="development">Development</option>
+                <option value="research">Research</option>
+                <option value="productivity">Productivity</option>
+                <option value="creative">Creative</option>
+                <option value="analysis">Analysis</option>
+                <option value="education">Education</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Tags</label>
+              <input
+                type="text"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                value={formData.tags}
+                onChange={(e) => setFormData(prev => ({ ...prev, tags: e.target.value }))}
+                placeholder="coding, review, analysis (comma separated)"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="isPublic"
+              className="rounded border-gray-600 bg-gray-700"
+              checked={formData.is_public}
+              onChange={(e) => setFormData(prev => ({ ...prev, is_public: e.target.checked }))}
+            />
+            <label htmlFor="isPublic" className="text-sm text-gray-300">
+              Make this prompt public
+            </label>
+          </div>
+
+          <div className="flex justify-end space-x-3 pt-4">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSave}
+              disabled={saving || !formData.name || !formData.template}
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            >
+              {saving ? (
+                <>
+                  <LoadingSpinner />
+                  <span>Saving...</span>
+                </>
+              ) : (
+                <span>Create Prompt</span>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Edit Prompt Modal Component
+function EditPromptModal({
+  prompt,
+  onClose,
+  onSave
+}: {
+  prompt: PromptTemplate
+  onClose: () => void
+  onSave: (prompt: PromptTemplate) => void
+}) {
+  const [formData, setFormData] = useState({
+    name: prompt.name,
+    template: prompt.template,
+    description: prompt.description || '',
+    category: prompt.category,
+    tags: prompt.tags.join(', '),
+    is_public: prompt.is_public
+  })
+  const [saving, setSaving] = useState(false)
+
+  const handleSave = async () => {
+    if (!formData.name || !formData.template) return
+
+    setSaving(true)
+    try {
+      const updatedPrompt: PromptTemplate = {
+        ...prompt,
+        name: formData.name,
+        template: formData.template,
+        description: formData.description || null,
+        category: formData.category,
+        tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0),
+        is_public: formData.is_public,
+        updated_at: new Date().toISOString()
+      }
+
+      const { error } = await supabase
+        .from('prompt_templates')
+        .update({
+          name: updatedPrompt.name,
+          template: updatedPrompt.template,
+          description: updatedPrompt.description,
+          category: updatedPrompt.category,
+          tags: updatedPrompt.tags,
+          is_public: updatedPrompt.is_public,
+          updated_at: updatedPrompt.updated_at
+        })
+        .eq('id', prompt.id)
+
+      if (error) throw error
+
+      onSave(updatedPrompt)
+    } catch (error) {
+      console.error('Error updating prompt:', error)
+      alert('Failed to update prompt. Please try again.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-gray-800 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold text-white">Edit Prompt</h2>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5 text-gray-400" />
+          </button>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Name *</label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              value={formData.name}
+              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+              placeholder="Enter prompt name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Description</label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+              value={formData.description}
+              onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+              placeholder="Brief description of the prompt"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Prompt Template *</label>
+            <textarea
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white h-40 resize-none"
+              value={formData.template}
+              onChange={(e) => setFormData(prev => ({ ...prev, template: e.target.value }))}
+              placeholder="Enter your prompt template here..."
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Category</label>
+              <select
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                value={formData.category}
+                onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value as any }))}
+              >
+                <option value="general">General</option>
+                <option value="coding">Coding</option>
+                <option value="writing">Writing</option>
+                <option value="analysis">Analysis</option>
+                <option value="creative">Creative</option>
+                <option value="research">Research</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Tags</label>
+              <input
+                type="text"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                value={formData.tags}
+                onChange={(e) => setFormData(prev => ({ ...prev, tags: e.target.value }))}
+                placeholder="coding, review, analysis (comma separated)"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="editIsPublic"
+              className="rounded border-gray-600 bg-gray-700"
+              checked={formData.is_public}
+              onChange={(e) => setFormData(prev => ({ ...prev, is_public: e.target.checked }))}
+            />
+            <label htmlFor="editIsPublic" className="text-sm text-gray-300">
+              Make this prompt public
+            </label>
+          </div>
+
+          <div className="flex justify-end space-x-3 pt-4">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSave}
+              disabled={saving || !formData.name || !formData.template}
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            >
+              {saving ? (
+                <>
+                  <LoadingSpinner />
+                  <span>Updating...</span>
+                </>
+              ) : (
+                <span>Update Prompt</span>
               )}
             </button>
           </div>
